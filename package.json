@@ -1,0 +1,51 @@
+{
+  "name": "jess-bright-portfolio",
+  "private": false,
+  "description": "Portfolio for Jess Bright",
+  "version": "0.1.0",
+  "author": "Sam Goddard <hello@samgoddard.co.uk>",
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "framer-motion": "^1.8.4",
+    "gatsby": "^2.24.91",
+    "gatsby-image": "^2.4.21",
+    "gatsby-plugin-manifest": "^2.2.41",
+    "gatsby-plugin-offline": "^3.0.34",
+    "gatsby-plugin-postcss": "^2.1.20",
+    "gatsby-plugin-react-helmet": "^3.1.22",
+    "gatsby-plugin-sharp": "^2.6.43",
+    "gatsby-source-filesystem": "^2.1.48",
+    "gatsby-transformer-sharp": "^2.3.14",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
+    "react-icons": "^3.9.0"
+  },
+  "devDependencies": {
+    "postcss-import": "^12.0.1",
+    "postcss-import-resolver": "^2.0.0",
+    "postcss-nested": "^4.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^1.19.1",
+    "tailwindcss": "^1.9.0"
+  },
+  "keywords": [
+    "gatsby",
+    "tailwind",
+    "framer",
+    "motion"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
+    "dev": "gatsby clean && gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samuelgoddard/gatsby-tailwind-motion"
+  }
+}

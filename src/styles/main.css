@@ -1,0 +1,17 @@
+/* Local Fonts */
+@import './partials/_fonts.css';
+
+/* Minor resets */
+@import './partials/_base.css';
+
+/* Tailwind Base + Components */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+/* Custom Partials */
+@import './partials/_container.css';
+@import './partials/_typography.css';
+@import './partials/_navigation.css';
+
+/* Tailwind Utils */
+@import 'tailwindcss/utilities';
