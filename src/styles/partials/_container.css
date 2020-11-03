@@ -1,7 +1,9 @@
-.container {
-    @apply 
-        mx-auto
-        px-8;
+@responsive {
+    .container {
+        @apply 
+            mx-auto
+            px-8;
 
-    max-width: theme('screens.lg');
+        max-width: theme('screens.2xl');
+    }
 }

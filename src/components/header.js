@@ -1,41 +1,22 @@
 import React from "react"
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import { motion } from 'framer-motion'
-import Nav from '../components/nav'
 
-const Header = ({ siteTitle }) => (
-  <header className="py-8 md:py-16">
-    
-    <div className="container">
-      <div className="flex flex-wrap items-center mb-4">
-        <motion.button
-          className="w-5 h-5 mr-3 block bg-black rounded"
-          animate={{ rotate: 180 }}
-          transition={{
-            loop: Infinity,
-            duration: 2,
-            ease: "anticipate"
-          }}
-        />
-
-        <Link className="font-bold block text-lg md:text-xl inline-block" to="/">
-          {siteTitle}
-        </Link>
-      </div>
-
-      <Nav />
-
-    </div>
+const Header = () => (
+  <header className="relative md:absolute top-0 right-0 mb-12 md:mb-0">
+    <nav className="">
+      <ul className="flex flex-wrap">
+        <li>
+          <Link className="text-lg md:text-xl xl:text-2xl ml-0 mx-2 md:mx-3 py-2 relative focus:outline-none focus:shadow-outline" activeClassName="nav--active" to="/">Work</Link>
+        </li>
+        <li>
+          <Link className="text-lg md:text-xl xl:text-2xl mx-2 md:mx-3 py-2 relative focus:outline-none focus:shadow-outline" activeClassName="nav--active" to="/about">About</Link>
+        </li>
+        <li>
+          <a className="text-lg md:text-xl xl:text-2xl mx-2 md:mx-3 mr-0 py-2 relative focus:outline-none focus:shadow-outline" href="mailto:jess_bright@hotmail.co.uk">Mail</a>
+        </li>
+      </ul>
+    </nav>
   </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
