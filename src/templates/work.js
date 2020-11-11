@@ -2,42 +2,21 @@ import React from "react"
 import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
-import { motion } from 'framer-motion'
-
-const duration = 0
-
-const container = {
-  visible: {
-    transition: {
-      when: 'beforeChildren',
-      staggerChildren: 0,
-      delayChildren: duration,
-    },
-  },
-}
-const item = {
-  hidden: { y: 0, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-}
+import { motion } from "framer-motion"
+import { fade } from "../helpers/transitionHelper"
 
 const WorkPage = ({ data: { work }}) => {
   return (
     <>
       <SEO title={ work.title } />
       <motion.section
-        variants={container}
-        initial="hidden" 
-        animate="visible"
-        className=""
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        variants={fade}
+        className="pt-32 pb-6 px-6 md:p-10"
       >
-        <motion.div 
-          className="mb-8"
-          variants={item}
-          transition="easeInOut"
-        >
+        <div className="mb-8">
           <div className="mb-8 md:mb-12">
             <h1 className="font-serif leading-snug pt-12 md:pt-20 xl:pt-24 tracking-tighter mb-0 pb-0">{work.title}</h1>
             <span className="block text-gray text-xl md:text-2xl -mt-1">{ work.category[0].name }</span>
@@ -56,13 +35,9 @@ const WorkPage = ({ data: { work }}) => {
           </div>
 
           <Img fluid={ work.featuredImage.fluid } className="w-full mb-0 pb-0" />
-        </motion.div>
+        </div>
 
-        <motion.div 
-          className="mb-8"
-          variants={item}
-          transition="easeInOut"
-        >
+        <div className="mb-8">
           {
             work.content.map((block) => (
               <div key={block.id}>
@@ -136,8 +111,7 @@ const WorkPage = ({ data: { work }}) => {
               </div>
             ))
           }
-        </motion.div>
-
+        </div>
       </motion.section>
     </>
   )

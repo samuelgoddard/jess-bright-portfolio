@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 const Header = () => (
-  <header className="relative md:absolute top-0 right-0 mb-12 md:mb-0">
+  <header className="absolute top-0 md:right-0 p-6 md:p-10 z-20">
     <nav className="">
       <ul className="flex flex-wrap">
         <li>
