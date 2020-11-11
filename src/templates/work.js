@@ -73,7 +73,7 @@ const WorkPage = ({ data: { work }}) => {
                       dangerouslySetInnerHTML={{ __html: block.text }}
                     ></div>
                 }{
-                  block.model.apiKey === 'image12_split' &&
+                  block.model.apiKey === 'image35050' &&
                     <div className="w-full overflow-hidden mb-8">
                       <div className="flex flex-wrap md:-mx-4">
                         <div className="w-full flex flex-col md:w-1/2 md:px-4 mb-8 md:mb-0">
@@ -92,27 +92,33 @@ const WorkPage = ({ data: { work }}) => {
                       </div>
                     </div>
                 }{
-                  block.model.apiKey === 'image4_split' &&
+                  block.model.apiKey === 'image25050' &&
                     <div className="w-full overflow-hidden mb-8">
                       <div className="flex flex-wrap sm:-mx-4">
                         <div className="w-full sm:w-1/2 sm:px-4">
                           <Img fluid={ block.image1.fluid } className="w-full mb-8 pb-0" />
                         </div>
                         <div className="w-full sm:w-1/2 sm:px-4">
-                          <Img fluid={ block.image2.fluid } className="w-full mb-8" />
-                        </div>
-                        <div className="w-full sm:w-1/2 sm:px-4">
-                          <Img fluid={ block.image3.fluid } className="w-full mb-8 pb-0" />
-                        </div>
-                        <div className="w-full sm:w-1/2 sm:px-4">
-                          <Img fluid={ block.image4.fluid } className="w-full mb-8" />
+                          <Img fluid={ block.image2.fluid } className="w-full mb-0 pb-0" />
                         </div>
                       </div>
                     </div>
                 }{
-                  block.model.apiKey === 'image4_split_offset' &&
+                  block.model.apiKey === 'image27030' &&
                     <div className="w-full overflow-hidden mb-8">
-                      <div className="flex flex-wrap sm:-mx-4 mb-8">
+                      <div className="flex flex-wrap sm:-mx-4">
+                        <div className="w-full sm:w-7/12 sm:px-4 flex flex-col">
+                          <Img fluid={ block.image1.fluid } className="w-full mb-8 sm:mb-0 pb-0 h-full" />
+                        </div>
+                        <div className="w-full sm:w-5/12 sm:px-4 flex flex-col">
+                          <Img fluid={ block.image2.fluid } className="w-full h-full" />
+                        </div>
+                      </div>
+                    </div>
+                }{
+                  block.model.apiKey === 'image23070' &&
+                    <div className="w-full overflow-hidden mb-8">
+                      <div className="flex flex-wrap sm:-mx-4">
                         <div className="w-full sm:w-5/12 sm:px-4 flex flex-col">
                           <Img fluid={ block.image1.fluid } className="w-full h-full mb-8 sm:mb-0 pb-0" />
                         </div>
@@ -120,14 +126,11 @@ const WorkPage = ({ data: { work }}) => {
                           <Img fluid={ block.image2.fluid } className="w-full h-full" />
                         </div>
                       </div>
-                      <div className="flex flex-wrap sm:-mx-4">
-                        <div className="w-full sm:w-7/12 sm:px-4 flex flex-col">
-                          <Img fluid={ block.image3.fluid } className="w-full mb-8 sm:mb-0 pb-0 h-full" />
-                        </div>
-                        <div className="w-full sm:w-5/12 sm:px-4 flex flex-col">
-                          <Img fluid={ block.image4.fluid } className="w-full h-full" />
-                        </div>
-                      </div>
+                    </div>
+                }{
+                  block.model.apiKey === 'image1100' &&
+                    <div className="w-full overflow-hidden mb-8">
+                      <Img fluid={ block.image.fluid } className="w-full pb-0" />
                     </div>
                 }
               </div>
@@ -161,7 +164,7 @@ export const query = graphql`
           model { apiKey }
           text
         }
-        ... on DatoCmsImage12Split {
+        ... on DatoCmsImage35050 {
           id
           model {
             apiKey
@@ -188,33 +191,19 @@ export const query = graphql`
             alt
           }
         }
-        ... on DatoCmsImage4SplitOffset {
+        ... on DatoCmsImage27030 {
           id
           model {
             apiKey
           }
           image1 {
             fluid(
-              imgixParams: {auto: "format", sharp:0, h: "1200", w: "1200", fit: "crop", crop: "faces, center"}) {
+              imgixParams: {auto: "format", sharp:0, h: "875", w: "1200", fit: "crop", crop: "faces, center"}) {
               ...GatsbyDatoCmsFluid
             }
             alt
           }
           image2 {
-            fluid(
-              imgixParams: {auto: "format", sharp:0, h: "875", w: "1200", fit: "crop", crop: "faces, center"}) {
-              ...GatsbyDatoCmsFluid
-            }
-            alt
-          }
-          image3 {
-            fluid(
-              imgixParams: {auto: "format", sharp:0, h: "875", w: "1200", fit: "crop", crop: "faces, center"}) {
-              ...GatsbyDatoCmsFluid
-            }
-            alt
-          }
-          image4 {
             fluid(
               imgixParams: {auto: "format", sharp:0, h: "1200", w: "1200", fit: "crop", crop: "faces, center"}) {
               ...GatsbyDatoCmsFluid
@@ -222,7 +211,27 @@ export const query = graphql`
             alt
           }
         }
-        ... on DatoCmsImage4Split {
+        ... on DatoCmsImage23070 {
+          id
+          model {
+            apiKey
+          }
+          image1 {
+            fluid(
+              imgixParams: {auto: "format", sharp:0, h: "1200", w: "1200", fit: "crop", crop: "faces, center"}) {
+              ...GatsbyDatoCmsFluid
+            }
+            alt
+          }
+          image2 {
+            fluid(
+              imgixParams: {auto: "format", sharp:0, h: "875", w: "1200", fit: "crop", crop: "faces, center"}) {
+              ...GatsbyDatoCmsFluid
+            }
+            alt
+          }
+        }
+        ... on DatoCmsImage25050 {
           id
           model {
             apiKey
@@ -241,16 +250,15 @@ export const query = graphql`
             }
             alt
           }
-          image3 {
-            fluid(
-              imgixParams: {auto: "format", sharp:0, h: "875", w: "1200", fit: "crop", crop: "faces, center"}) {
-              ...GatsbyDatoCmsFluid
-            }
-            alt
+        }
+        ... on DatoCmsImage1100 {
+          id
+          model {
+            apiKey
           }
-          image4 {
+          image {
             fluid(
-              imgixParams: {auto: "format", sharp:0, h: "875", w: "1200", fit: "crop", crop: "faces, center"}) {
+              imgixParams: {auto: "format", sharp:0, h: "1200", w: "2000", fit: "crop", crop: "faces, center"}) {
               ...GatsbyDatoCmsFluid
             }
             alt
