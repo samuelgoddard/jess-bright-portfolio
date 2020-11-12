@@ -17,7 +17,6 @@ const IndexPage = ({ data: { categories, work }, location}) => {
         initial="initial"
         animate="enter"
         exit="exit"
-        variants={fade}
         className="pt-32 pb-6 px-6 md:p-10"
       >
         <motion.div
@@ -25,7 +24,7 @@ const IndexPage = ({ data: { categories, work }, location}) => {
           animate="enter"
           exit="exit"
           variants={{
-            enter: { transition: { staggerChildren: 0.12, delayChildren: 0.025 } }
+            enter: { transition: { staggerChildren: 0.055 }}
           }}
           className="mb-20 md:mb-24 xl:mb-32"
         >
@@ -42,68 +41,53 @@ const IndexPage = ({ data: { categories, work }, location}) => {
           </h1>
         </motion.div>
         
-        <motion.ul
-          initial="initial"
-          animate="enter"
-          exit="exit"
-          variants={{
-            enter: { transition: { delayChildren: 0.75 } }
-          }}
-          className="text-lg md:text-lg xl:text-xl leading-tight flex flex-wrap mb-4"
-        >
-          <li className="mr-3 mb-2 ml-0 overflow-hidden relative"><motion.button variants={fade} className="focus:outline-none focus:shadow-outline border-b border-black">All</motion.button></li>
-          {categories.edges.map(({ node }, i) => {
-            return (
-              <li className="mr-3 mb-2 overflow-hidden relative text-gray" key={i}>
-                <motion.button variants={fade} className="focus:outline-none focus:shadow-outline">
-                  { node.name }
-                </motion.button>
-              </li>
-            )
-          })}
-        </motion.ul>
-        
         <motion.div
           initial="initial"
           animate="enter"
           exit="exit"
           variants={{
-            enter: { transition: { delayChildren: 0.95 } }
+            enter: { transition: { delayChildren: 0.5 }}
           }}
-          className="overflow-hidden relative mb-8"
         >
-          <motion.p variants={fade} className="text-base md:text-lg max-w-2xl leading-snug block pb-0 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</motion.p>
-        </motion.div>
-        
-        <motion.div
-          initial="initial"
-          animate="enter"
-          exit="exit"
-          variants={{
-            enter: { transition: { delayChildren: 1.125 } }
-          }}
-          className="overflow-hidden"
-        >
-          <div className="grid md:grid-cols-12 gap-8">
-            {work.edges.map(({ node }, i) => {
-              let classes = ``
-              if (i%7 === 0) { classes = `md:col-span-5`}
-              else if (i%6 === 0) { classes = `md:col-span-7`}
-              else if (i%4 === 0) { classes = `md:col-span-5`}
-              else if (i%3 === 0) { classes = `md:col-span-5`}
-              else if (i%2 === 0) { classes = `md:col-span-7`} 
-              else { classes = `md:col-span-7` }
+          <ul className="text-lg md:text-lg xl:text-xl leading-tight flex flex-wrap mb-4">
+            <li className="mr-3 mb-2 ml-0 overflow-hidden relative"><motion.button variants={fade} className="focus:outline-none focus:shadow-outline border-b border-black">All</motion.button></li>
+            {categories.edges.map(({ node }, i) => {
               return (
-                <div key={i} className={`relative overflow-hidden ` + classes}>
-                  <motion.div className="h-full" variants={fade}>
-                    <Teaser
-                      link={`/${node.slug}`}
-                      image={node.featuredImage.fluid}
-                    />
-                  </motion.div>
-                </div>
+                <li className="mr-3 mb-2 overflow-hidden relative text-gray" key={i}>
+                  <motion.button variants={fade} className="focus:outline-none focus:shadow-outline">
+                    { node.name }
+                  </motion.button>
+                </li>
               )
             })}
+          </ul>
+          
+          <div className="overflow-hidden relative mb-8">
+            <motion.p variants={fade} className="text-base md:text-lg max-w-2xl leading-snug block pb-0 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</motion.p>
+          </div>
+          
+          <div className="overflow-hidden">
+            <div className="grid md:grid-cols-12 gap-8">
+              {work.edges.map(({ node }, i) => {
+                let classes = ``
+                if (i%7 === 0) { classes = `md:col-span-5`}
+                else if (i%6 === 0) { classes = `md:col-span-7`}
+                else if (i%4 === 0) { classes = `md:col-span-5`}
+                else if (i%3 === 0) { classes = `md:col-span-5`}
+                else if (i%2 === 0) { classes = `md:col-span-7`} 
+                else { classes = `md:col-span-7` }
+                return (
+                  <div key={i} className={`relative overflow-hidden ` + classes}>
+                    <motion.div className="h-full" variants={fade}>
+                      <Teaser
+                        link={`/${node.slug}`}
+                        image={node.featuredImage.fluid}
+                      />
+                    </motion.div>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </motion.div>
       </motion.section>
