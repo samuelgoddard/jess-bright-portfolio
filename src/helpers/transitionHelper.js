@@ -15,7 +15,7 @@ export const revealInOut = {
 	enter: { 
     y: "0%",
     opacity: 1,
-    transition: { duration: 1.3, ease: [0.76, 0, 0.24, 1] }
+    transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] }
   },
   exit: { 
     y: "100%",
@@ -28,7 +28,7 @@ export const revealInOutMini = {
 	enter: { 
     y: 0,
     opacity: 1,
-    transition: { duration: 1.3, ease: [0.76, 0, 0.24, 1] }
+    transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] }
   },
   exit: { 
     y: 50,

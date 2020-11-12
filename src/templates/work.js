@@ -2,13 +2,17 @@ import React from "react"
 import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
+import Scroll from "../components/locomotiveScroll"
 import { motion } from "framer-motion"
 import { fade } from "../helpers/transitionHelper"
 
-const WorkPage = ({ data: { work }}) => {
+const WorkPage = ({ data: { work }, location}) => {
   return (
     <>
       <SEO title={ work.title } />
+      
+      <Scroll callback={location} />
+
       <motion.section
         initial="initial"
         animate="enter"

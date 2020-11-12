@@ -2,12 +2,15 @@ import React from "react"
 import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import { motion } from 'framer-motion'
+import Scroll from "../components/locomotiveScroll"
 import { fade } from "../helpers/transitionHelper"
 
-const AboutPage = ({ data: { about, categories }}) => {
+const AboutPage = ({ data: { about, categories }, location }) => {
   return (
     <>
       <SEO title="About" />
+
+      <Scroll callback={location} />
 
       <motion.section
         initial="initial"

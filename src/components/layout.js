@@ -7,7 +7,7 @@ import "../styles/main.css"
 
 const Layout = ({ children, location }) => {
   return (
-    <div className="min-h-screen">
+    <div id="scroll-container" className="content-inner" data-scroll-container>
       <Header location={location} />
 
       <AnimatePresence exitBeforeEnter>
