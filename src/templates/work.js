@@ -33,7 +33,9 @@ const WorkPage = ({ data: { work }, location}) => {
 
             <div className="w-full md:w-6/12 ml-auto md:text-right">
               <span className="block text-sm leading-snug">Client — { work.client }</span>
-              <span className="block text-sm leading-snug">Photographer — { work.photographer }</span>
+              { work.photographer && (
+                <span className="block text-sm leading-snug">Photographer — { work.photographer }</span>
+              )}
               <span className="block text-sm leading-snug">Year — {work.date}</span>
             </div>
           </div>

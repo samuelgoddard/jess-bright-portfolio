@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import { motion } from 'framer-motion'
 import Scroll from "../components/locomotiveScroll"
+import Img from "gatsby-image"
 import { revealInOut, fade } from "../helpers/transitionHelper"
 
 const AboutPage = ({ data: { about, categories }, location }) => {
@@ -53,9 +54,7 @@ const AboutPage = ({ data: { about, categories }, location }) => {
         >
 
           <motion.div variants={fade} className="w-full md:w-5/12 md:px-8">
-            <svg width="100%" height="450" className="text-blue-light mb-8 md:mt-20 xl:mt-32">
-              <rect width="100%" height="100%" fill="currentColor" />
-            </svg>
+            <Img fluid={ about.image.fluid } className="w-full mb-8 md:mt-20 xl:mt-32" />
           </motion.div>
 
           <motion.div variants={fade} className="content w-11/12 md:w-6/12 xl:w-5/12 md:px-8">
@@ -92,6 +91,13 @@ export const query = graphql`
       headline
       content
       slug
+      image {
+        fluid(
+          imgixParams: {auto: "format", sharp:0, h: "1600", w: "1600", fit: "crop", crop: "faces, center"}) {
+          ...GatsbyDatoCmsFluid
+        }
+        alt
+      }
     }
   }
 `
