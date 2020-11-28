@@ -6,7 +6,7 @@ import Scroll from "../components/locomotiveScroll"
 import Img from "gatsby-image"
 import { revealInOut, fade } from "../helpers/transitionHelper"
 
-const AboutPage = ({ data: { about, categories }, location }) => {
+const AboutPage = ({ data: { about, categories, globals }, location }) => {
   return (
     <>
       <SEO title="About" />
@@ -17,9 +17,9 @@ const AboutPage = ({ data: { about, categories }, location }) => {
         initial="initial"
         animate="enter"
         exit="exit"
-        className="flex flex-wrap md:-mx-8 text-blue-light pt-32 pb-6 px-6 md:p-10"
+        className="flex flex-wrap md:-mx-8 text-blue-light pt-32 pb-6 px-6 md:p-10 relative"
       >
-        <motion.div variants={fade} className="absolute top-0 right-0 bottom-0 left-0 bg-blue z-0"></motion.div>
+        <motion.div variants={fade} className="fixed top-0 right-0 bottom-0 left-0 bg-blue z-0"></motion.div>
 
         <motion.div
           initial="initial"
@@ -32,13 +32,13 @@ const AboutPage = ({ data: { about, categories }, location }) => {
         >
           <h1 className="text-blue-light mb-20 md:mb-24 xl:mb-32 md:max-w-md xl:max-w-xl pb-0">
             <span className="block relative overflow-hidden">
-              <motion.span variants={revealInOut} className="block">Some headline text</motion.span>
+              <motion.span variants={revealInOut} className="block">Finding humour in</motion.span>
             </span>
             <span className="block relative overflow-hidden">
-              <motion.span variants={revealInOut} className="block">that goes on the</motion.span>
+              <motion.span variants={revealInOut} className="block">the small, everyday</motion.span>
             </span>
             <span className="block relative overflow-hidden">
-              <motion.span variants={revealInOut} className="block">about page</motion.span>
+              <motion.span variants={revealInOut} className="block">struggles of life</motion.span>
             </span>
           </h1>
         </motion.div>
@@ -69,6 +69,18 @@ const AboutPage = ({ data: { about, categories }, location }) => {
             </ul>
           </motion.div>
         </motion.div>
+
+        <motion.div
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          variants={{
+            enter: { transition: { delayChildren: 0.5 } }
+          }}
+          className="min-h-halfscreen w-full flex flex-wrap items-center justify-center relative z-10"
+        >
+          <motion.a href={ `mailto:` + globals.emailAddress } variants={fade} className="block italic font-serif text-3xl md:text-4xl xl:text-5xl nav--active nav--active--large relative hover:text-white focus:text-white transition ease-in-out duration-300">Drop me a line!</motion.a>
+        </motion.div>
       </motion.section>
     </>
   )
@@ -78,6 +90,9 @@ export default AboutPage
 
 export const query = graphql`
   query AboutQuery {
+    globals: datoCmsGlobal {
+      emailAddress
+    }
     categories: allDatoCmsCategory {
       edges {
         node {

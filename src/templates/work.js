@@ -1,6 +1,6 @@
 import React from "react"
 import SEO from "../components/seo"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Scroll from "../components/locomotiveScroll"
 import { motion } from "framer-motion"
@@ -20,6 +20,8 @@ const WorkPage = ({ data: { work }, location}) => {
         variants={fade}
         className="pt-32 pb-6 px-6 md:p-10"
       >
+        <Link to="/" className="block text-gray text-xl md:text-2xl mx-2 md:mx-3 md:ml-0 relative hover:text-black focus:text-black">← Back to work</Link>
+
         <div className="mb-8">
           <div className="mb-8 md:mb-12">
             <h1 className="font-serif leading-snug pt-12 md:pt-20 xl:pt-24 tracking-tighter mb-0 pb-0">{work.title}</h1>
@@ -32,10 +34,15 @@ const WorkPage = ({ data: { work }, location}) => {
             ) : (<></>)}
 
             <div className="w-full md:w-6/12 ml-auto md:text-right">
-              <span className="block text-sm leading-snug">Client — { work.client }</span>
-              { work.photographer && (
-                <span className="block text-sm leading-snug">Photographer — { work.photographer }</span>
-              )}
+              { work.metaBlocks.map((block) => (
+                <div key={block.id}>
+                  {
+                    block.model.apiKey === 'text_block' &&
+                    <span className="block text-sm leading-snug">{ block.title } — { block.text }</span>
+                  }
+                </div>
+              ))}
+
               <span className="block text-sm leading-snug">Year — {work.date}</span>
             </div>
           </div>
@@ -130,12 +137,18 @@ export const query = graphql`
     work: datoCmsWork(slug: { eq: $slug }) {
       title
       introText
-      client
-      photographer
       date(formatString: "YYYY")
       featuredImage {
         fluid(imgixParams: { w: "2000", h: "1200", fit: "fillmax", crop: "center" }) {
           ...GatsbyDatoCmsFluid
+        }
+      }
+      metaBlocks {
+        ... on DatoCmsTextBlock {
+          id
+          model { apiKey }
+          title
+          text
         }
       }
       content {

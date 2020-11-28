@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { AnimatePresence } from 'framer-motion'
 
 import Header from "./header"
+import Footer from "./footer"
 import "../styles/main.css"
 
 const Layout = ({ children, location }) => {
@@ -12,6 +13,8 @@ const Layout = ({ children, location }) => {
 
       <AnimatePresence exitBeforeEnter>
         {children}
+
+        <Footer color={ location.pathname === '/about' ? `text-blue-light` : `text-black` }/>
       </AnimatePresence>
     </div>
   )

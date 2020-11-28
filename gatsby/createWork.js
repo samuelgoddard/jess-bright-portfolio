@@ -6,7 +6,7 @@ module.exports = async ({ actions, graphql }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allDatoCmsWork {
+        allDatoCmsWork(filter: {imageOnly: {eq: false}}) {
           edges {
             node {
               slug

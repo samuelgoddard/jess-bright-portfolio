@@ -4,9 +4,10 @@ import Teaser from "../components/teaser"
 import { graphql } from "gatsby"
 import { motion } from "framer-motion"
 import Scroll from "../components/locomotiveScroll"
+import Img from "gatsby-image"
 import { fade, revealInOut } from "../helpers/transitionHelper"
 
-const IndexPage = ({ data: { categories, work }, location}) => {
+const IndexPage = ({ data: { home, categories, work }, location}) => {
   return (
     <>
       <SEO title="Home" />
@@ -50,10 +51,10 @@ const IndexPage = ({ data: { categories, work }, location}) => {
           }}
         >
           <ul className="text-lg md:text-lg xl:text-xl leading-tight flex flex-wrap mb-4">
-            <li className="mr-3 mb-2 ml-0 overflow-hidden relative"><motion.button variants={fade} className="focus:outline-none focus:shadow-outline border-b border-black">All</motion.button></li>
+            <li className="mr-3 md:mr-4 mb-2 ml-0 overflow-hidden relative"><motion.button variants={fade} className="focus:outline-none focus:shadow-outline border-b border-black">All</motion.button></li>
             {categories.edges.map(({ node }, i) => {
               return (
-                <li className="mr-3 mb-2 overflow-hidden relative text-gray" key={i}>
+                <li className="mr-3 md:mr-4 mb-2 overflow-hidden relative text-gray" key={i}>
                   <motion.button variants={fade} className="focus:outline-none focus:shadow-outline">
                     { node.name }
                   </motion.button>
@@ -63,26 +64,26 @@ const IndexPage = ({ data: { categories, work }, location}) => {
           </ul>
           
           <div className="overflow-hidden relative mb-8">
-            <motion.p variants={fade} className="text-base md:text-lg max-w-2xl leading-snug block pb-0 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</motion.p>
+            <motion.div dangerouslySetInnerHTML={{ __html: home.filtersTextBlock }} variants={ fade } className="text-base md:text-lg max-w-2xl leading-snug block pb-0 mb-0"></motion.div>
           </div>
           
           <div className="overflow-hidden">
-            <div className="grid md:grid-cols-12 gap-8">
+            <div className="grid grid-work md:grid-cols-12 gap-8">
               {work.edges.map(({ node }, i) => {
-                let classes = ``
-                if (i%7 === 0) { classes = `md:col-span-5`}
-                else if (i%6 === 0) { classes = `md:col-span-7`}
-                else if (i%4 === 0) { classes = `md:col-span-5`}
-                else if (i%3 === 0) { classes = `md:col-span-5`}
-                else if (i%2 === 0) { classes = `md:col-span-7`} 
-                else { classes = `md:col-span-7` }
                 return (
-                  <div key={i} className={`relative overflow-hidden ` + classes}>
+                  <div key={i} className={`relative overflow-hidden grid-work__item w-full`}>
                     <motion.div className="h-full" variants={fade}>
-                      <Teaser
-                        link={`/${node.slug}`}
-                        image={node.featuredImage.fluid}
-                      />
+                      { node.imageOnly ? (
+                        <div className="block h-full relative">
+                          <Img fluid={ node.featuredImage.fluid } className="w-full h-full object-cover mb-0 pb-0" />
+                        </div>
+                      ) : (
+                        <Teaser
+                          backgroundColor={node.teaserHoverBackgroundColour.hex}
+                          link={`/${node.slug}`}
+                          image={node.featuredImage.fluid}
+                        />
+                      )}
                     </motion.div>
                   </div>
                 )
@@ -99,7 +100,11 @@ export default IndexPage
 
 export const query = graphql`
   query IndexQuery {
-    categories: allDatoCmsCategory {
+    home: datoCmsHome {
+      title
+      filtersTextBlock
+    }
+    categories: allDatoCmsCategory(sort: { fields: [position], order: ASC }) {
       edges {
         node {
           name
@@ -112,6 +117,10 @@ export const query = graphql`
         node {
           title
           slug
+          imageOnly
+          teaserHoverBackgroundColour {
+            hex
+          }
           featuredImage {
             fluid(imgixParams: { w: "1600", h: "1200", fit: "fillmax", crop: "center" }) {
               ...GatsbyDatoCmsFluid
