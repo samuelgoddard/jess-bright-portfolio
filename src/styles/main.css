@@ -70,6 +70,13 @@
 	}
 }
 
+.nav-transition {
+	transition-property: color;
+  	transition-duration: 400ms;
+  	transition-timing-function: ease-in-out;
+	transition-delay: 0.5s;
+}
+
 
 html.has-scroll-smooth {
 	overflow: hidden;

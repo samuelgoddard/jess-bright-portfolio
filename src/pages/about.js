@@ -4,7 +4,7 @@ import SEO from "../components/seo"
 import { motion } from 'framer-motion'
 import Scroll from "../components/locomotiveScroll"
 import Img from "gatsby-image"
-import { revealInOut, fade } from "../helpers/transitionHelper"
+import { revealInOut, fade, fadeSlow } from "../helpers/transitionHelper"
 
 const AboutPage = ({ data: { about, categories, globals }, location }) => {
   return (
@@ -19,15 +19,12 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
         exit="exit"
         className="flex flex-wrap md:-mx-8 text-blue-light pt-32 pb-6 px-6 md:p-10 relative"
       >
-        <motion.div variants={fade} className="fixed top-0 right-0 bottom-0 left-0 bg-blue z-0"></motion.div>
+        <motion.div variants={fadeSlow} className="fixed top-0 right-0 bottom-0 left-0 bg-blue z-0"></motion.div>
 
         <motion.div
           initial="initial"
           animate="enter"
           exit="exit"
-          variants={{
-            enter: { transition: { staggerChildren: 0.055 } }
-          }}
           className="w-full md:px-8 relative z-10"
         >
           <h1 className="text-blue-light mb-20 md:mb-24 xl:mb-32 md:max-w-md xl:max-w-xl pb-0">
@@ -47,9 +44,6 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
           initial="initial"
           animate="enter"
           exit="exit"
-          variants={{
-            enter: { transition: { delayChildren: 0.5 } }
-          }}
           className="flex flex-wrap relative z-10"
         >
 
@@ -74,9 +68,6 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
           initial="initial"
           animate="enter"
           exit="exit"
-          variants={{
-            enter: { transition: { delayChildren: 0.5 } }
-          }}
           className="min-h-halfscreen w-full flex flex-wrap items-center justify-center relative z-10"
         >
           <motion.a href={ `mailto:` + globals.emailAddress } variants={fade} className="block italic font-serif text-3xl md:text-4xl xl:text-5xl nav--active nav--active--large relative hover:text-white focus:text-white transition ease-in-out duration-300">Drop me a line!</motion.a>

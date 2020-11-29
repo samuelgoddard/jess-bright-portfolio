@@ -9,7 +9,7 @@ import "../styles/main.css"
 const Layout = ({ children, location }) => {
   return (
     <div id="scroll-container" className="content-inner" data-scroll-container>
-      <Header location={location} />
+      <Header location={location} color={ location.pathname === '/about' ? `text-blue-light` : `text-black` }/>
 
       <AnimatePresence exitBeforeEnter>
         {children}
