@@ -1,6 +1,7 @@
 import React from "react"
 import SEO from "../components/seo"
 import Teaser from "../components/teaser"
+import Header from "../components/header"
 import { graphql } from "gatsby"
 import { motion } from "framer-motion"
 import Scroll from "../components/locomotiveScroll"
@@ -10,9 +11,25 @@ import { fade, revealInOut } from "../helpers/transitionHelper"
 const IndexPage = ({ data: { home, categories, work }, location}) => {
   return (
     <>
-      <SEO title="Home" />
+      <SEO
+        titleOverride={home.metaTags && home.metaTags.title ? home.metaTags.title : home.title }
+        descriptionOverride={home.metaTags && home.metaTags.description ? home.metaTags.description : null }
+        pathnameOverride={location.pathname}
+        imageOverride={home.metaTags && home.metaTags.image ? home.metaTags.image.url : null }
+      />
 
       <Scroll callback={location} />
+
+      <motion.div
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        className="relative z-20"
+      >
+        <motion.div variants={fade}>
+          <Header color="text-black" workActiveOverride />
+        </motion.div>
+      </motion.div>
 
       <motion.section
         initial="initial"
@@ -20,10 +37,14 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
         exit="exit"
         className="pt-32 pb-6 px-6 md:p-10"
       >
+
         <motion.div
           initial="initial"
           animate="enter"
           exit="exit"
+          variants={{
+            enter: { transition: { staggerChildren: 0.055 }}
+          }}
           className="mb-20 md:mb-24 xl:mb-32"
         >
           <h1 className="pb-0 mb-0">
@@ -43,6 +64,9 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
           initial="initial"
           animate="enter"
           exit="exit"
+          variants={{
+            enter: { transition: { delayChildren: 0.5 }}
+          }}
         >
           <ul className="text-lg md:text-lg xl:text-xl leading-tight flex flex-wrap mb-4">
             <li className="mr-3 md:mr-4 mb-2 ml-0 overflow-hidden relative"><motion.button variants={fade} className="focus:outline-none focus:shadow-outline border-b border-black">All</motion.button></li>
@@ -97,6 +121,14 @@ export const query = graphql`
     home: datoCmsHome {
       title
       filtersTextBlock
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
     }
     categories: allDatoCmsCategory(sort: { fields: [position], order: ASC }) {
       edges {

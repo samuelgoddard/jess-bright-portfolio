@@ -3,15 +3,32 @@ import SEO from "../components/seo"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Scroll from "../components/locomotiveScroll"
+import Header from "../components/header"
 import { motion } from "framer-motion"
 import { fade } from "../helpers/transitionHelper"
 
 const WorkPage = ({ data: { work }, location}) => {
   return (
     <>
-      <SEO title={ work.title } />
+      <SEO
+        titleOverride={work.metaTags && work.metaTags.title ? work.metaTags.title : work.title }
+        descriptionOverride={work.metaTags && work.metaTags.description ? work.metaTags.description : null }
+        pathnameOverride={location.pathname}
+        imageOverride={work.metaTags && work.metaTags.image ? work.metaTags.image.url : null }
+      />
       
       <Scroll callback={location} />
+
+      <motion.div
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        className="relative z-20"
+      >
+        <motion.div variants={fade}>
+          <Header color="text-black" workActiveOverride />
+        </motion.div>
+      </motion.div>
 
       <motion.section
         initial="initial"
@@ -164,6 +181,14 @@ export const query = graphql`
     work: datoCmsWork(slug: { eq: $slug }) {
       title
       introText
+      metaTags {
+        title
+        description
+        twitterCard
+        image {
+          url
+        }
+      }
       date(formatString: "YYYY")
       featuredImage {
         fluid(imgixParams: {w: "2000", h: "1200", fit: "crop" }) {

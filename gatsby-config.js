@@ -3,7 +3,8 @@ require("dotenv").config({ path: `.env` })
 module.exports = {
   siteMetadata: {
     title: `Jess Bright`,
-    description: `Jess Bright Portfolio`,
+    siteUrl: `https://jess-bright-portfolio.vercel.app`,
+    description: `Jess Bright Portfolio.`,
     author: `@samuelgoddard`,
   },
   plugins: [
