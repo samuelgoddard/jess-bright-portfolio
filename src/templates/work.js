@@ -20,11 +20,11 @@ const WorkPage = ({ data: { work }, location}) => {
         variants={fade}
         className="pt-32 pb-6 px-6 md:p-10"
       >
-        <Link to="/" className="block text-gray text-xl md:text-2xl mx-2 md:mx-3 md:ml-0 relative hover:text-black focus:text-black">← Back to work</Link>
+        <Link to="/" className="inline-block text-gray text-xl md:text-2xl mx-2 md:mx-3 md:ml-0 relative hover:text-black focus:text-black">← Back to work</Link>
 
         <div className="mb-8">
           <div className="mb-8 md:mb-12">
-            <h1 className="font-serif leading-snug pt-12 md:pt-20 xl:pt-24 tracking-tighter mb-0 pb-0">{work.title}</h1>
+            <h1 className="font-serif leading-extra-tight pt-12 md:pt-20 xl:pt-24 tracking-tighter mb-0 pb-0 max-w-xl">{work.title}</h1>
             <span className="block text-gray text-xl md:text-2xl -mt-1">{ work.category[0].name }</span>
           </div>
 
@@ -57,7 +57,7 @@ const WorkPage = ({ data: { work }, location}) => {
                 {
                   block.model.apiKey === 'text' &&
                     <div
-                      className="w-10/12 md:w-1/2 xl:w-5/12 xl:pt-3 pb-12 md:pb-16 xl:pb-20"
+                      className="w-10/12 md:w-1/2 xl:w-5/12 xl:pt-3 pt-6 md:pt-8 xl:pt-12 pb-16 md:pb-20 xl:pb-24"
                       dangerouslySetInnerHTML={{ __html: block.text }}
                     ></div>
                 }{
@@ -116,6 +116,33 @@ const WorkPage = ({ data: { work }, location}) => {
                       </div>
                     </div>
                 }{
+                  block.model.apiKey === 'image3333333_square' &&
+                  <div className="w-full overflow-hidden mb-8">
+                    <div className="flex flex-wrap sm:-mx-4">
+                      <div className="w-full sm:w-4/12 sm:px-4 flex flex-col">
+                        <Img fluid={ block.image1.fluid } className="w-full h-full mb-8 sm:mb-0 pb-0" />
+                      </div>
+                      <div className="w-full sm:w-4/12 sm:px-4 flex flex-col">
+                        <Img fluid={ block.image2.fluid } className="w-full h-full mb-8 sm:mb-0 pb-0" />
+                      </div>
+                      <div className="w-full sm:w-4/12 sm:px-4 flex flex-col">
+                        <Img fluid={ block.image3.fluid } className="w-full h-full" />
+                      </div>
+                    </div>
+                  </div>
+                }{
+                  block.model.apiKey === 'image25050_square' &&
+                  <div className="w-full overflow-hidden mb-8">
+                    <div className="flex flex-wrap sm:-mx-4">
+                      <div className="w-full sm:w-1/2 sm:px-4 flex flex-col">
+                        <Img fluid={ block.image1.fluid } className="w-full h-full mb-8 sm:mb-0 pb-0" />
+                      </div>
+                      <div className="w-full sm:w-1/2 sm:px-4 flex flex-col">
+                        <Img fluid={ block.image2.fluid } className="w-full h-full" />
+                      </div>
+                    </div>
+                  </div>
+                }{
                   block.model.apiKey === 'image1100' &&
                     <div className="w-full overflow-hidden mb-8">
                       <Img fluid={ block.image.fluid } className="w-full pb-0" />
@@ -139,7 +166,7 @@ export const query = graphql`
       introText
       date(formatString: "YYYY")
       featuredImage {
-        fluid(imgixParams: { w: "2000", h: "1200", fit: "fillmax", crop: "center" }) {
+        fluid(imgixParams: {w: "2000", h: "1200", fit: "crop" }) {
           ...GatsbyDatoCmsFluid
         }
       }
@@ -164,21 +191,21 @@ export const query = graphql`
           }
           image1 {
             fluid(
-              imgixParams: {auto: "format", sharp:0, h: "2000", w: "1200", fit: "crop", crop: "faces, center"}) {
+              imgixParams: {h: "2000", w: "1200", fit: "crop"}) {
               ...GatsbyDatoCmsFluid
             }
             alt
           }
           image2 {
             fluid(
-              imgixParams: {auto: "format", sharp:0, h: "975", w: "1200", fit: "crop", crop: "faces, center"}) {
+              imgixParams: {h: "975", w: "1200", fit: "crop"}) {
               ...GatsbyDatoCmsFluid
             }
             alt
           }
           image3 {
             fluid(
-              imgixParams: {auto: "format", sharp:0, h: "975", w: "1200", fit: "crop", crop: "faces, center"}) {
+              imgixParams: {auto: "format", sharp:0, h: "975", w: "1200", fit: "crop"}) {
               ...GatsbyDatoCmsFluid
             }
             alt
@@ -191,14 +218,14 @@ export const query = graphql`
           }
           image1 {
             fluid(
-              imgixParams: {auto: "format", sharp:0, h: "875", w: "1200", fit: "crop", crop: "faces, center"}) {
+              imgixParams: {h: "1100", w: "1600", fit: "crop"}) {
               ...GatsbyDatoCmsFluid
             }
             alt
           }
           image2 {
             fluid(
-              imgixParams: {auto: "format", sharp:0, h: "1200", w: "1200", fit: "crop", crop: "faces, center"}) {
+              imgixParams: {h: "1600", w: "1600", fit: "crop"}) {
               ...GatsbyDatoCmsFluid
             }
             alt
@@ -211,14 +238,14 @@ export const query = graphql`
           }
           image1 {
             fluid(
-              imgixParams: {auto: "format", sharp:0, h: "1200", w: "1200", fit: "crop", crop: "faces, center"}) {
+              imgixParams: {h: "1600", w: "1600", fit: "crop"}) {
               ...GatsbyDatoCmsFluid
             }
             alt
           }
           image2 {
             fluid(
-              imgixParams: {auto: "format", sharp:0, h: "875", w: "1200", fit: "crop", crop: "faces, center"}) {
+              imgixParams: {h: "1100", w: "1600", fit: "crop"}) {
               ...GatsbyDatoCmsFluid
             }
             alt
@@ -231,14 +258,61 @@ export const query = graphql`
           }
           image1 {
             fluid(
-              imgixParams: {auto: "format", sharp:0, h: "875", w: "1200", fit: "crop", crop: "faces, center"}) {
+              imgixParams: {h: "1100", w: "1600", fit: "crop"}) {
               ...GatsbyDatoCmsFluid
             }
             alt
           }
           image2 {
             fluid(
-              imgixParams: {auto: "format", sharp:0, h: "875", w: "1200", fit: "crop", crop: "faces, center"}) {
+              imgixParams: {h: "1100", w: "1600", fit: "crop"}) {
+              ...GatsbyDatoCmsFluid
+            }
+            alt
+          }
+        }
+        ... on DatoCmsImage25050Square {
+          id
+          model {
+            apiKey
+          }
+          image1 {
+            fluid(
+              imgixParams: {h: "1600", w: "1600", fit: "crop"}) {
+              ...GatsbyDatoCmsFluid
+            }
+            alt
+          }
+          image2 {
+            fluid(
+              imgixParams: {h: "1600", w: "1600", fit: "crop"}) {
+              ...GatsbyDatoCmsFluid
+            }
+            alt
+          }
+        }
+        ... on DatoCmsImage3333333Square {
+          id
+          model {
+            apiKey
+          }
+          image1 {
+            fluid(
+              imgixParams: {h: "1600", w: "1600", fit: "crop"}) {
+              ...GatsbyDatoCmsFluid
+            }
+            alt
+          }
+          image2 {
+            fluid(
+              imgixParams: {h: "1600", w: "1600", fit: "crop"}) {
+              ...GatsbyDatoCmsFluid
+            }
+            alt
+          }
+          image3 {
+            fluid(
+              imgixParams: {h: "1600", w: "1600", fit: "crop"}) {
               ...GatsbyDatoCmsFluid
             }
             alt
@@ -251,7 +325,7 @@ export const query = graphql`
           }
           image {
             fluid(
-              imgixParams: {auto: "format", sharp:0, h: "1200", w: "2000", fit: "crop", crop: "faces, center"}) {
+              imgixParams: {w: "2000", h: "1200", fit: "crop" }) {
               ...GatsbyDatoCmsFluid
             }
             alt

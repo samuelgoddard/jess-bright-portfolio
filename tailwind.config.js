@@ -34,6 +34,9 @@ module.exports = {
         sans: ['Telegraf', '-apple-system', 'BlinkMacSystemFont'],
         serif: ['Sainte Colombe', 'Georgia', 'Cambria'],
       },
+      lineHeight: {
+        'extra-tight': '1.15',
+      },
       minHeight: {
         'halfscreen': '50vh',
       },

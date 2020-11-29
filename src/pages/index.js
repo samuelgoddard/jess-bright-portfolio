@@ -81,7 +81,7 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
                         <Teaser
                           backgroundColor={node.teaserHoverBackgroundColour.hex}
                           link={`/${node.slug}`}
-                          image={node.featuredImage.fluid}
+                          image={node.teaserImage ? node.teaserImage.fluid : node.featuredImage.fluid}
                         />
                       )}
                     </motion.div>
@@ -121,8 +121,13 @@ export const query = graphql`
           teaserHoverBackgroundColour {
             hex
           }
+          teaserImage {
+            fluid(imgixParams: { w: "1920", h: "1400" }) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
           featuredImage {
-            fluid(imgixParams: { w: "1600", h: "1200", fit: "fillmax", crop: "center" }) {
+            fluid(imgixParams: { w: "1920", h: "1400" }) {
               ...GatsbyDatoCmsFluid
             }
           }

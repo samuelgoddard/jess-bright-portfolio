@@ -108,7 +108,7 @@ export const query = graphql`
       slug
       image {
         fluid(
-          imgixParams: {auto: "format", sharp:0, h: "1600", w: "1600", fit: "crop", crop: "faces, center"}) {
+          imgixParams: {h: "1600", w: "1600", fit: "crop"}) {
           ...GatsbyDatoCmsFluid
         }
         alt
