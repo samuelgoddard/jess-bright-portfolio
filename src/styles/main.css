@@ -62,6 +62,14 @@
 	}
 }
 
+.grid-item {
+	max-height: 575px;
+
+	@screen 3xl {
+		max-height: 675px;
+	}
+}
+
 
 html.has-scroll-smooth {
 	overflow: hidden;

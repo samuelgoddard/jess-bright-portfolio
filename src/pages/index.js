@@ -74,10 +74,10 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
                   <div key={i} className={`relative overflow-hidden grid-work__item w-full`}>
                     <motion.div className="h-full" variants={fade}>
                       { node.imageOnly ? (
-                        <div className="block h-full relative">
+                        <div className="block relative h-full grid-item">
                           <Img fluid={ node.featuredImage.fluid } className="w-full h-full object-cover mb-0 pb-0" />
                         </div>
-                      ) : (
+                    ) : (
                         <Teaser
                           backgroundColor={node.teaserHoverBackgroundColour.hex}
                           link={`/${node.slug}`}
