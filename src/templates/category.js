@@ -92,7 +92,7 @@ const CategoryPage = ({ data: { home, categories, work, currentCat }, location})
             <div className="grid grid-work md:grid-cols-12 gap-8">
               {work.edges.map(({ node }, i) => {
                 return (
-                  <div key={i} className={`relative overflow-hidden grid-work__item w-full`}>
+                  <div key={i} className={`relative overflow-hidden col-span-6 w-full`}>
                     <motion.div className="h-full" variants={fade}>
                       { node.imageOnly ? (
                         <div className="block relative h-full grid-item">
@@ -102,7 +102,7 @@ const CategoryPage = ({ data: { home, categories, work, currentCat }, location})
                         <Teaser
                           backgroundColor={node.teaserHoverBackgroundColour.hex}
                           link={`/${node.slug}`}
-                          image={node.teaserImage ? node.teaserImage.fluid : node.featuredImage.fluid}
+                          image={node.teaserImageSquareOverride ? node.teaserImageSquareOverride.fluid : node.featuredImage.fluid}
                         />
                       )}
                     </motion.div>
@@ -155,6 +155,11 @@ export const query = graphql`
           }
           teaserImage {
             fluid(imgixParams: { w: "1920", h: "1400" }) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+          teaserImageSquareOverride {
+            fluid(imgixParams: { w: "1400", h: "1400" }) {
               ...GatsbyDatoCmsFluid
             }
           }
