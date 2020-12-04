@@ -52,7 +52,7 @@ const CategoryPage = ({ data: { home, categories, work, currentCat }, location})
               <motion.span variants={revealInOut} className="block">Jess Bright is a</motion.span>
             </span>
             <span className="block relative overflow-hidden">
-              <motion.span variants={revealInOut} className="block">freelance <span className="font-serif inline">illustrator</span></motion.span>
+              <motion.span variants={revealInOut} className="block">freelance <span className="font-serif inline">{currentCat.headingWord ? currentCat.headingWord.toLowerCase() : `creative`}</span></motion.span>
             </span>
             <span className="block relative overflow-hidden">
               <motion.span variants={revealInOut} className="block">from Nottingham</motion.span>
@@ -91,6 +91,12 @@ const CategoryPage = ({ data: { home, categories, work, currentCat }, location})
           <div className="overflow-hidden">
             <div className="grid grid-work md:grid-cols-12 gap-8">
               {work.edges.map(({ node }, i) => {
+                let imageTern = node.featuredImage
+                if (node.teaserImageSquareOverride) {
+                  imageTern = node.teaserImageSquareOverride
+                } else if (node.teaserImage) {
+                  imageTern = node.teaserImage
+                }
                 return (
                   <div key={i} className={`relative overflow-hidden col-span-6 w-full`}>
                     <motion.div className="h-full" variants={fade}>
@@ -102,7 +108,7 @@ const CategoryPage = ({ data: { home, categories, work, currentCat }, location})
                         <Teaser
                           backgroundColor={node.teaserHoverBackgroundColour.hex}
                           link={`/${node.slug}`}
-                          image={node.teaserImageSquareOverride ? node.teaserImageSquareOverride.fluid : node.featuredImage.fluid}
+                          image={ imageTern.fluid }
                         />
                       )}
                     </motion.div>
@@ -143,6 +149,7 @@ export const query = graphql`
     }
     currentCat: datoCmsCategory(slug: {eq: $slug}) {
       name
+      headingWord
     }
     work: allDatoCmsWork(sort: { fields: [position], order: ASC }, filter: {category: {elemMatch: {slug: {eq: $slug}}}}) {
       edges {
