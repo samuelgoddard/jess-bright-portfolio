@@ -1,7 +1,9 @@
 const createWork = require(`./gatsby/createWork`)
+const createCategories = require(`./gatsby/createCategories`)
 
 exports.createPages = async ({ actions, graphql }) => {
   await createWork({ actions, graphql })
+  await createCategories({ actions, graphql })
 }
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {

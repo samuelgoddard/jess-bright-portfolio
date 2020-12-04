@@ -8,11 +8,11 @@ import Scroll from "../components/locomotiveScroll"
 import Img from "gatsby-image"
 import { fade, revealInOut } from "../helpers/transitionHelper"
 
-const IndexPage = ({ data: { home, categories, work }, location}) => {
+const CategoryPage = ({ data: { home, categories, work, currentCat }, location}) => {
   return (
     <>
       <SEO
-        titleOverride={home.metaTags && home.metaTags.title ? home.metaTags.title : home.title }
+        titleOverride={currentCat.name }
         descriptionOverride={home.metaTags && home.metaTags.description ? home.metaTags.description : null }
         pathnameOverride={location.pathname}
         imageOverride={home.metaTags && home.metaTags.image ? home.metaTags.image.url : null }
@@ -70,12 +70,13 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
         >
           <ul className="text-lg md:text-lg xl:text-xl leading-tight flex flex-wrap mb-4">
             <motion.li variants={fade} className="mr-3 md:mr-4 mb-2 ml-0 overflow-hidden relative">
-              <Link to="/" className="border-b border-black">All</Link>
+              <Link to="/" className="text-gray hover:text-black focus:text-black">All</Link>
             </motion.li>
             {categories.edges.map(({ node }, i) => {
+              let active = `/` + node.slug.toLowerCase() === location.pathname.toLowerCase()  ? `text-black border-b border-black opacity-100` : `text-gray hover:text-black focus:text-black`;
               return (
-                <motion.li variants={fade} className="mr-3 md:mr-4 mb-2 overflow-hidden relative text-gray" key={i}>
-                  <Link to={`/${node.slug}`} className="hover:text-black focus:text-black">
+                <motion.li variants={fade} className={`mr-3 md:mr-4 mb-2 overflow-hidden relative`} key={i}>
+                  <Link to={`/${node.slug}`} className={active}>
                     { node.name }
                   </Link>
                 </motion.li>
@@ -116,10 +117,10 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
   )
 }
 
-export default IndexPage
+export default CategoryPage
 
 export const query = graphql`
-  query IndexQuery {
+  query CategoryPageQuery($slug: String!) {
     home: datoCmsHome {
       title
       filtersTextBlock
@@ -140,7 +141,10 @@ export const query = graphql`
         }
       }
     }
-    work: allDatoCmsWork(sort: { fields: [position], order: ASC }) {
+    currentCat: datoCmsCategory(slug: {eq: $slug}) {
+      name
+    }
+    work: allDatoCmsWork(sort: { fields: [position], order: ASC }, filter: {category: {elemMatch: {slug: {eq: $slug}}}}) {
       edges {
         node {
           title
