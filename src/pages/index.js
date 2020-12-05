@@ -1,6 +1,7 @@
 import React from "react"
 import SEO from "../components/seo"
 import Teaser from "../components/teaser"
+import Badges from "../components/badges"
 import Header from "../components/header"
 import { graphql, Link } from "gatsby"
 import { motion } from "framer-motion"
@@ -29,7 +30,15 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
         <motion.div variants={fade}>
           <Header color="text-black" workActiveOverride />
         </motion.div>
+
+        <motion.div variants={fade}>
+          <div className="absolute top-0 right-0 mr-5 md:mr-10 mt-5 md:mt-24">
+            <Badges width="w-24 md:w-32" theme="text-black" icon="branding" />
+          </div>
+        </motion.div>
       </motion.div>
+
+
 
       <motion.section
         initial="initial"

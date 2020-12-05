@@ -98,3 +98,27 @@ html.has-scroll-dragging {
 .has-scroll-smooth [data-scroll-container] {
 	min-height: 100vh;
 }
+
+.badge {
+	&:nth-child(1) {
+		animation: toggleOn 0.1s ease-in-out;
+	}
+}
+
+@keyframes toggleOn {
+	0% {
+		opacity: 0;
+	}
+	10% {
+		opacity: 1;
+	}
+}
+
+@keyframes toggleOff {
+	0% {
+		opacity: 1;
+	}
+	10% {
+		opacity: 0;
+	}
+}

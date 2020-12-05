@@ -15,6 +15,9 @@ module.exports = {
       "3xl": "1920px"
     },
     extend: {
+      animation: {
+        'spin-slow': 'spin 15s linear infinite',
+      },
       colors: {
         black: '#000000',
         white: '#FFFFFF',

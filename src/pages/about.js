@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import Header from "../components/header"
+import Badges from "../components/badges"
 import { motion } from 'framer-motion'
 import Scroll from "../components/locomotiveScroll"
 import Img from "gatsby-image"
@@ -28,6 +29,12 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
         <motion.div variants={fade}>
           <Header color="text-blue-light" aboutActiveOverride />
         </motion.div>
+
+        <motion.div variants={fade}>
+        <div className="absolute top-0 right-0 mr-5 md:mr-10 mt-5 md:mt-24">
+            <Badges width="w-24 md:w-32" theme="text-blue-light" icon="branding" />
+          </div>
+        </motion.div>
       </motion.div>
 
       <motion.section
@@ -37,10 +44,6 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
         className="flex flex-wrap md:-mx-8 text-blue-light pt-32 pb-6 px-6 md:p-10 relative"
       >
         <motion.div variants={fade} className="fixed top-0 right-0 bottom-0 left-0 bg-blue z-0"></motion.div>
-
-        <motion.div variants={revealInOut} className="relative z-10">
-          <Header color="text-blue-light" />
-        </motion.div>
 
         <motion.div
           initial="initial"

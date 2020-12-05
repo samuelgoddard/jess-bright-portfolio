@@ -2,6 +2,7 @@ import React from "react"
 import SEO from "../components/seo"
 import Teaser from "../components/teaser"
 import Header from "../components/header"
+import Badges from "../components/badges"
 import { graphql, Link } from "gatsby"
 import { motion } from "framer-motion"
 import Scroll from "../components/locomotiveScroll"
@@ -28,6 +29,12 @@ const CategoryPage = ({ data: { home, categories, work, currentCat }, location})
       >
         <motion.div variants={fade}>
           <Header color="text-black" workActiveOverride />
+        </motion.div>
+
+        <motion.div variants={fade}>
+          <div className="absolute top-0 right-0 mr-10 mt-24">
+            <Badges width="w-32" theme="text-black" icon={ currentCat.slug } />
+          </div>
         </motion.div>
       </motion.div>
 
@@ -149,6 +156,7 @@ export const query = graphql`
     }
     currentCat: datoCmsCategory(slug: {eq: $slug}) {
       name
+      slug
       headingWord
     }
     work: allDatoCmsWork(sort: { fields: [position], order: ASC }, filter: {category: {elemMatch: {slug: {eq: $slug}}}}) {
