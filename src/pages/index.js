@@ -8,8 +8,15 @@ import { motion } from "framer-motion"
 import Scroll from "../components/locomotiveScroll"
 import Img from "gatsby-image"
 import { fade, revealInOut } from "../helpers/transitionHelper"
+var ReactRotatingText = require('react-rotating-text');
 
 const IndexPage = ({ data: { home, categories, work }, location}) => {
+
+  let headingWords = []
+  {categories.edges.map(({ node }, i) => {
+    headingWords.push(node.headingWord)
+  })}
+
   return (
     <>
       <SEO
@@ -46,7 +53,6 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
         exit="exit"
         className="pt-32 pb-6 px-6 md:p-10"
       >
-
         <motion.div
           initial="initial"
           animate="enter"
@@ -61,7 +67,13 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
               <motion.span variants={revealInOut} className="block">Jess Bright is a</motion.span>
             </span>
             <span className="block relative overflow-hidden">
-              <motion.span variants={revealInOut} className="block">freelance <span className="font-serif inline">illustrator</span></motion.span>
+              <motion.span variants={revealInOut} className="block">freelance <span className="font-serif inline">
+                <ReactRotatingText
+                  items={headingWords}
+                  pause={2500}
+                  emptyPause={500}
+                />
+              </span></motion.span>
             </span>
             <span className="block relative overflow-hidden">
               <motion.span variants={revealInOut} className="block">from Nottingham</motion.span>
@@ -145,6 +157,7 @@ export const query = graphql`
       edges {
         node {
           name
+          headingWord
           slug
         }
       }

@@ -101,6 +101,9 @@ html.has-scroll-dragging {
 
 .badge {
 	&:nth-child(1) {
+		animation: toggleOff 0.1s ease-in-out;
+	}
+	&:nth-child(2) {
 		animation: toggleOn 0.1s ease-in-out;
 	}
 }
@@ -121,4 +124,8 @@ html.has-scroll-dragging {
 	10% {
 		opacity: 0;
 	}
+}
+
+.react-rotating-text-cursor {
+	@apply hidden;
 }
