@@ -37,17 +37,17 @@ const WorkPage = ({ data: { work }, location}) => {
         variants={fade}
         className="pt-32 pb-6 px-6 md:p-10"
       >
-        <Link to="/" className="inline-block text-gray text-xl md:text-2xl mx-2 md:mx-3 md:ml-0 relative hover:text-black focus:text-black">← Back to work</Link>
+        <Link to="/" className="inline-block text-gray text-xl md:text-2xl mx-2 md:mx-3 md:ml-0 relative hover:text-black focus:text-black transition ease-in-out duration-300">← Back to work</Link>
 
         <div className="mb-8">
           <div className="mb-8 md:mb-12">
-            <h1 className="font-serif leading-extra-tight pt-12 md:pt-20 xl:pt-24 tracking-tighter mb-0 pb-0 max-w-xl">{work.title}</h1>
+            <h1 className="font-serif leading-extra-tight pt-12 md:pt-20 xl:pt-24 tracking-tighter mb-0 pb-0 max-w-xl font-light">{work.title}</h1>
             {/* <span className="block text-gray text-xl md:text-2xl -mt-1">{ work.category[0].name }</span> */}
           </div>
 
           <div className="flex flex-wrap items-end mb-8 md:mb-12">
             { work.introText ? (
-              <div className="w-10/12 md:w-5/12 mb-6 md:mb-0 md:text-lg leading-snug" dangerouslySetInnerHTML={{ __html: work.introText }}></div>
+              <div className="w-10/12 md:w-5/12 mb-6 md:mb-0 md:text-lg leading-snug content" dangerouslySetInnerHTML={{ __html: work.introText }}></div>
             ) : (<></>)}
 
             <div className="w-full md:w-6/12 ml-auto md:text-right">
@@ -74,7 +74,7 @@ const WorkPage = ({ data: { work }, location}) => {
                 {
                   block.model.apiKey === 'text' &&
                     <div
-                      className="w-10/12 md:w-1/2 xl:w-5/12 xl:pt-3 pt-6 md:pt-8 xl:pt-12 pb-16 md:pb-20 xl:pb-24"
+                      className="w-10/12 md:w-1/2 xl:w-5/12 xl:pt-3 pt-6 md:pt-8 xl:pt-12 pb-16 md:pb-20 xl:pb-24 content"
                       dangerouslySetInnerHTML={{ __html: block.text }}
                     ></div>
                 }{

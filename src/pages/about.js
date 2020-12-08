@@ -52,19 +52,32 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
           variants={{
             enter: { transition: { staggerChildren: 0.055 }}
           }}
-          className="w-full md:px-8 relative z-10"
+          className="w-full md:px-8 relative z-10 hidden md:block"
         >
-          <h1 className="text-blue-light mb-20 md:mb-24 xl:mb-32 md:max-w-md xl:max-w-xl pb-0">
+          <h1 className="text-blue-light mb-20 md:mb-24 xl:mb-32 pr-12 md:pr-0 md:max-w-md xl:max-w-xl pb-0">
             <span className="block relative overflow-hidden">
-              <motion.span variants={revealInOut} className="block">Finding humour in</motion.span>
+              <motion.span variants={revealInOut} className="block">working with</motion.span>
             </span>
             <span className="block relative overflow-hidden">
-              <motion.span variants={revealInOut} className="block">the small, everyday</motion.span>
+              <motion.span variants={revealInOut} className="block">agencies and cool</motion.span>
             </span>
             <span className="block relative overflow-hidden">
-              <motion.span variants={revealInOut} className="block">struggles of life</motion.span>
+              <motion.span variants={revealInOut} className="block">people worldwide</motion.span>
             </span>
           </h1>
+        </motion.div>
+
+        <motion.div
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          variants={{
+            enter: { transition: { staggerChildren: 0.055 }}
+          }}
+          className="w-full md:px-8 relative z-10 block md:hidden"
+        >
+          <motion.h1 variants={fade} className="text-blue-light mb-20 md:mb-24 xl:mb-32 pr-12 md:pr-0 max-w-sm md:max-w-md xl:max-w-xl pb-0">working with agencies and cool people worldwide
+          </motion.h1>
         </motion.div>
 
         <motion.div

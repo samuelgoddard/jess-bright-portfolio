@@ -77,10 +77,10 @@ const CategoryPage = ({ data: { home, categories, work, currentCat }, location})
         >
           <ul className="text-lg md:text-lg xl:text-xl leading-tight flex flex-wrap mb-4">
             <motion.li variants={fade} className="mr-3 md:mr-4 mb-2 ml-0 overflow-hidden relative">
-              <Link to="/" className="text-gray hover:text-black focus:text-black">All</Link>
+              <Link to="/" className="text-gray nav--item block hover:text-black pb-px focus:text-black border-b-2 border-white">All</Link>
             </motion.li>
             {categories.edges.map(({ node }, i) => {
-              let active = `/` + node.slug.toLowerCase() === location.pathname.toLowerCase()  ? `text-black border-b border-black opacity-100` : `text-gray hover:text-black focus:text-black`;
+              let active = `/` + node.slug.toLowerCase() === location.pathname.toLowerCase()  ? `text-black border-b border-black opacity-100 pb-1` : `text-gray nav--item block hover:text-black pb-1 focus:text-black`;
               return (
                 <motion.li variants={fade} className={`mr-3 md:mr-4 mb-2 overflow-hidden relative`} key={i}>
                   <Link to={`/${node.slug}`} className={active}>

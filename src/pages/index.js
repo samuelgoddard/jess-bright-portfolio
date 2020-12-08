@@ -60,14 +60,14 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
           variants={{
             enter: { transition: { staggerChildren: 0.055 }}
           }}
-          className="mb-20 md:mb-24 xl:mb-32"
+          className="mb-20 md:mb-24 xl:mb-32 pr-12 md:pr-0 hidden md:block"
         >
           <h1 className="pb-0 mb-0">
             <span className="block relative overflow-hidden">
               <motion.span variants={revealInOut} className="block">Jess Bright is a</motion.span>
             </span>
             <span className="block relative overflow-hidden">
-              <motion.span variants={revealInOut} className="block">freelance <span className="font-serif inline">
+              <motion.span variants={revealInOut} className="block">freelance <span className="font-serif inline font-light">
                 <ReactRotatingText
                   items={headingWords}
                   pause={2500}
@@ -80,6 +80,27 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
             </span>
           </h1>
         </motion.div>
+
+        <motion.div
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          variants={{
+            enter: { transition: { staggerChildren: 0.055 }}
+          }}
+          className="mb-20 md:mb-24 xl:mb-32 pr-12 md:pr-0 block md:hidden"
+        >
+          <motion.h1 variants={fade } className="pb-0 mb-0">
+            Jess Bright is <br/>a freelance
+            <span className="font-serif block h-12">
+                <ReactRotatingText
+                  items={headingWords}
+                  pause={2500}
+                  emptyPause={500}
+                />
+              </span>from <br/>Nottingham
+          </motion.h1>
+        </motion.div>
         
         <motion.div
           initial="initial"
@@ -91,12 +112,12 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
         >
           <ul className="text-lg md:text-lg xl:text-xl leading-tight flex flex-wrap mb-4">
             <motion.li variants={fade} className="mr-3 md:mr-4 mb-2 ml-0 overflow-hidden relative">
-              <Link to="/" className="border-b border-black">All</Link>
+              <Link to="/" className="border-b border-black block">All</Link>
             </motion.li>
             {categories.edges.map(({ node }, i) => {
               return (
                 <motion.li variants={fade} className="mr-3 md:mr-4 mb-2 overflow-hidden relative text-gray" key={i}>
-                  <Link to={`/${node.slug}`} className="hover:text-black focus:text-black">
+                  <Link to={`/${node.slug}`} className="nav--item border-b-2 border-white block hover:text-black pb-px focus:text-black">
                     { node.name }
                   </Link>
                 </motion.li>

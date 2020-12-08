@@ -35,7 +35,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Telegraf', '-apple-system', 'BlinkMacSystemFont'],
-        serif: ['Sainte Colombe', 'Georgia', 'Cambria'],
+        serif: ['Periodico Text TRIAL', 'Georgia', 'Cambria'],
       },
       lineHeight: {
         'extra-tight': '1.15',
