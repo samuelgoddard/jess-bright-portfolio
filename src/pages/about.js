@@ -41,7 +41,7 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
         initial="initial"
         animate="enter"
         exit="exit"
-        className="flex flex-wrap md:-mx-8 text-blue-light pt-32 pb-6 px-6 md:p-10 relative"
+        className="flex flex-wrap md:-mx-8 text-blue-light pt-40 pb-6 px-6 md:p-10 relative"
       >
         <motion.div variants={fade} className="fixed top-0 right-0 bottom-0 left-0 bg-blue z-0"></motion.div>
 
@@ -54,7 +54,7 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
           }}
           className="w-full md:px-8 relative z-10 hidden md:block"
         >
-          <h1 className="text-blue-light mb-20 md:mb-24 xl:mb-32 pr-12 md:pr-0 md:max-w-md xl:max-w-xl pb-0">
+          <h1 className="text-blue-light mb-24 md:mb-24 xl:mb-32 pr-12 md:pr-0 md:max-w-md xl:max-w-xl pb-0">
             <span className="block relative overflow-hidden">
               <motion.span variants={revealInOut} className="block">Working with</motion.span>
             </span>
@@ -76,7 +76,7 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
           }}
           className="w-full md:px-8 relative z-10 block md:hidden"
         >
-          <motion.h1 variants={fade} className="text-blue-light mb-20 md:mb-24 xl:mb-32 pr-12 md:pr-0 max-w-sm md:max-w-md xl:max-w-xl pb-0">Working with agencies and cool people worldwide
+          <motion.h1 variants={fade} className="text-blue-light mb-16 md:mb-24 xl:mb-32 pr-12 md:pr-0 max-w-sm md:max-w-md xl:max-w-xl pb-0">Working with agencies and cool people worldwide
           </motion.h1>
         </motion.div>
 

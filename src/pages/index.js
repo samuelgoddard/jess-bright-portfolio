@@ -45,13 +45,11 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
         </motion.div>
       </motion.div>
 
-
-
       <motion.section
         initial="initial"
         animate="enter"
         exit="exit"
-        className="pt-32 pb-6 px-6 md:p-10"
+        className="pt-40 pb-6 px-6 md:p-10"
       >
         <motion.div
           initial="initial"
@@ -110,13 +108,13 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
             enter: { transition: { delayChildren: 0.5 }}
           }}
         >
-          <ul className="text-lg md:text-lg xl:text-xl leading-tight flex flex-wrap mb-4">
-            <motion.li variants={fade} className="mr-3 md:mr-4 mb-2 ml-0 overflow-hidden relative">
+          <ul className="text-lg md:text-lg xl:text-xl leading-tight mb-4 overflow-scroll whitespace-no-wrap md:overflow-hidden md:flex md:flex-wrap">
+            <motion.li variants={fade} className="mr-3 md:mr-4 mb-2 ml-0 overflow-hidden relative inline-block">
               <Link to="/" className="border-b border-black block">All</Link>
             </motion.li>
             {categories.edges.map(({ node }, i) => {
               return (
-                <motion.li variants={fade} className="mr-3 md:mr-4 mb-2 overflow-hidden relative text-gray" key={i}>
+                <motion.li variants={fade} className="mr-3 md:mr-4 mb-2 overflow-hidden relative text-gray inline-block" key={i}>
                   <Link to={`/${node.slug}`} className="nav--item border-b-2 border-white block hover:text-black pb-px focus:text-black">
                     { node.name }
                   </Link>

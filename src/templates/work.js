@@ -35,13 +35,13 @@ const WorkPage = ({ data: { work }, location}) => {
         animate="enter"
         exit="exit"
         variants={fade}
-        className="pt-32 pb-6 px-6 md:p-10"
+        className="pt-40 pb-6 px-6 md:p-10"
       >
         <Link to="/" className="inline-block text-gray text-xl md:text-2xl mx-2 md:mx-3 md:ml-0 relative hover:text-black focus:text-black transition ease-in-out duration-300">← Back to work</Link>
 
         <div className="mb-8">
           <div className="mb-8 md:mb-12">
-            <h1 className="pt-12 md:pt-20 xl:pt-24 tracking-tighter mb-0 pb-0 max-w-xl">{work.title}</h1>
+            <h1 className="pt-6 md:pt-20 xl:pt-24 tracking-tighter mb-0 pb-0 max-w-xl">{work.title}</h1>
             {/* <span className="block text-gray text-xl md:text-2xl -mt-1">{ work.category[0].name }</span> */}
           </div>
 

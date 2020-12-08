@@ -11,7 +11,7 @@ const NotFoundPage = () => (
       animate="enter"
       exit="exit"
       variants={fade}
-      className="pt-32 pb-6 px-6 md:p-10"
+      className="pt-40 md:pt-32 pb-6 px-6 md:p-10"
     >
       <h1>Sorry... This page could not be found!</h1>
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
