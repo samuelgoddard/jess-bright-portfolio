@@ -62,13 +62,13 @@
 	}
 }
 
-.grid-item {
+/* .grid-item {
 	max-height: 575px;
 
 	@screen 3xl {
 		max-height: 675px;
 	}
-}
+} */
 
 .nav-transition {
 	transition-property: color;

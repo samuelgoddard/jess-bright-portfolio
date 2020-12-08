@@ -41,7 +41,7 @@ const WorkPage = ({ data: { work }, location}) => {
 
         <div className="mb-8">
           <div className="mb-8 md:mb-12">
-            <h1 className="font-serif leading-extra-tight pt-12 md:pt-20 xl:pt-24 tracking-tighter mb-0 pb-0 max-w-xl font-light">{work.title}</h1>
+            <h1 className="pt-12 md:pt-20 xl:pt-24 tracking-tighter mb-0 pb-0 max-w-xl">{work.title}</h1>
             {/* <span className="block text-gray text-xl md:text-2xl -mt-1">{ work.category[0].name }</span> */}
           </div>
 

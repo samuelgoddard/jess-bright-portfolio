@@ -12,7 +12,7 @@ const Teaser = ({ link, image, backgroundColor }) => {
         <span className="block -mt-2">Case<br/>Study</span>
       </span>
     </div>
-    <Img fluid={ image } className="w-full h-full object-cover mb-0 pb-0" />
+    <Img fluid={ image } className="w-full h-full object-cover object-center mb-0 pb-0" />
   </Link>
   )
 }

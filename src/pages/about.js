@@ -56,7 +56,7 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
         >
           <h1 className="text-blue-light mb-20 md:mb-24 xl:mb-32 pr-12 md:pr-0 md:max-w-md xl:max-w-xl pb-0">
             <span className="block relative overflow-hidden">
-              <motion.span variants={revealInOut} className="block">working with</motion.span>
+              <motion.span variants={revealInOut} className="block">Working with</motion.span>
             </span>
             <span className="block relative overflow-hidden">
               <motion.span variants={revealInOut} className="block">agencies and cool</motion.span>
@@ -76,7 +76,7 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
           }}
           className="w-full md:px-8 relative z-10 block md:hidden"
         >
-          <motion.h1 variants={fade} className="text-blue-light mb-20 md:mb-24 xl:mb-32 pr-12 md:pr-0 max-w-sm md:max-w-md xl:max-w-xl pb-0">working with agencies and cool people worldwide
+          <motion.h1 variants={fade} className="text-blue-light mb-20 md:mb-24 xl:mb-32 pr-12 md:pr-0 max-w-sm md:max-w-md xl:max-w-xl pb-0">Working with agencies and cool people worldwide
           </motion.h1>
         </motion.div>
 

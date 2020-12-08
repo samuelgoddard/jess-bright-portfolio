@@ -92,7 +92,7 @@ const CategoryPage = ({ data: { home, categories, work, currentCat }, location})
           </ul>
           
           <div className="overflow-hidden relative mb-8">
-            <motion.div dangerouslySetInnerHTML={{ __html: home.filtersTextBlock }} variants={ fade } className="text-base md:text-lg max-w-2xl leading-snug block pb-0 mb-0"></motion.div>
+            <motion.div dangerouslySetInnerHTML={{ __html: currentCat.filtersTextBlock }} variants={ fade } className="text-base md:text-lg max-w-2xl leading-snug block pb-0 mb-0"></motion.div>
           </div>
           
           <div className="overflow-hidden">
@@ -158,6 +158,7 @@ export const query = graphql`
       name
       slug
       headingWord
+      filtersTextBlock
     }
     work: allDatoCmsWork(sort: { fields: [position], order: ASC }, filter: {category: {elemMatch: {slug: {eq: $slug}}}}) {
       edges {
