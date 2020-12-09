@@ -109,12 +109,12 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
           }}
         >
           <ul className="text-lg md:text-lg xl:text-xl 3xl:text-2xl leading-tight mb-4 flex flex-wrap">
-            <motion.li variants={fade} className="mr-3 md:mr-4 mb-2 ml-0 overflow-hidden relative inline-block">
+            <motion.li variants={fade} className="mr-3 md:mr-4 3xl:mr-6 mb-2 ml-0 overflow-hidden relative inline-block">
               <Link to="/" className="border-b border-black block">All</Link>
             </motion.li>
             {categories.edges.map(({ node }, i) => {
               return (
-                <motion.li variants={fade} className="mr-3 md:mr-4 mb-2 overflow-hidden relative text-gray inline-block" key={i}>
+                <motion.li variants={fade} className="mr-3 md:mr-4 3xl:mr-6 mb-2 overflow-hidden relative text-gray inline-block" key={i}>
                   <Link to={`/${node.slug}`} className="nav--item border-b-2 border-white block hover:text-black pb-px focus:text-black">
                     { node.name }
                   </Link>
