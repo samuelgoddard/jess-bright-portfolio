@@ -65,7 +65,7 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
               <motion.span variants={revealInOut} className="block">Jess Bright is a</motion.span>
             </span>
             <span className="block relative overflow-hidden">
-              <motion.span variants={revealInOut} className="block">freelance <span className="font-serif inline font-light">
+              <motion.span variants={revealInOut} className="block">freelance <span className="font-serif italic inline font-light">
                 <ReactRotatingText
                   items={headingWords}
                   pause={2500}
@@ -90,7 +90,7 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
         >
           <motion.h1 variants={revealInOut } className="pb-0 mb-0">
             Jess Bright<br/>is a freelance
-            <span className="font-serif block h-14">
+            <span className="font-serif italic block h-14">
                 <ReactRotatingText
                   items={headingWords}
                   pause={2500}

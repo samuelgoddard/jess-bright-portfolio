@@ -58,7 +58,7 @@ const CategoryPage = ({ data: { home, categories, work, currentCat }, location})
               <motion.span variants={revealInOut} className="block">Jess Bright is a</motion.span>
             </span>
             <span className="block relative overflow-hidden">
-              <motion.span variants={revealInOut} className="block">freelance <span className="font-serif inline font-light">{currentCat.headingWord ? currentCat.headingWord.toLowerCase() : `creative`}</span></motion.span>
+              <motion.span variants={revealInOut} className="block">freelance <span className="font-serif inline font-light italic">{currentCat.headingWord ? currentCat.headingWord.toLowerCase() : `creative`}</span></motion.span>
             </span>
             <span className="block relative overflow-hidden">
               <motion.span variants={revealInOut} className="block">from Nottingham</motion.span>
@@ -76,7 +76,7 @@ const CategoryPage = ({ data: { home, categories, work, currentCat }, location})
           className="mb-24 md:mb-24 xl:mb-32 pr-12 md:pr-0 block md:hidden overflow-hidden"
         >
           <motion.h1 variants={revealInOut } className="pb-0 mb-0">
-            Jess Bright<br/>is a freelance <span className="font-serif block font-light h-14">{currentCat.headingWord ? currentCat.headingWord.toLowerCase() : `creative`}</span> from <br/>Nottingham
+            Jess Bright<br/>is a freelance <span className="font-serif italic block font-light h-14">{currentCat.headingWord ? currentCat.headingWord.toLowerCase() : `creative`}</span> from <br/>Nottingham
           </motion.h1>
         </motion.div>
         
