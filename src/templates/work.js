@@ -18,6 +18,7 @@ const WorkPage = ({ data: { work }, location}) => {
       />
       
       <Scroll callback={location} />
+      
       <motion.div
         initial="initial"
         animate="enter"
