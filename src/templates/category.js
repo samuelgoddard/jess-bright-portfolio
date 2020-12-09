@@ -32,13 +32,11 @@ const CategoryPage = ({ data: { home, categories, work, currentCat }, location})
         </motion.div>
 
         <motion.div variants={fade}>
-          <div className="absolute top-0 right-0 mr-5 md:mr-10 mt-5 md:mt-24">
-            <Badges width="w-24 md:w-32" theme="text-black" icon="branding" />
+          <div className="absolute top-0 right-0 mr-5 md:mr-10 mt-5 md:mt-24 3xl:mt-28">
+            <Badges width="w-24 md:w-32 3xl:w-40" theme="text-black" icon={currentCat.slug} />
           </div>
         </motion.div>
       </motion.div>
-
-
 
       <motion.section
         initial="initial"
@@ -78,7 +76,7 @@ const CategoryPage = ({ data: { home, categories, work, currentCat }, location})
           className="mb-24 md:mb-24 xl:mb-32 pr-12 md:pr-0 block md:hidden"
         >
           <motion.h1 variants={fade } className="pb-0 mb-0">
-            Jess Bright is <br/>a freelance <span className="font-serif inline font-light">{currentCat.headingWord ? currentCat.headingWord.toLowerCase() : `creative`}</span> from <br/>Nottingham
+            Jess Bright is <br/>a freelance <span className="font-serif block font-light h-14">{currentCat.headingWord ? currentCat.headingWord.toLowerCase() : `creative`}</span> from <br/>Nottingham
           </motion.h1>
         </motion.div>
         
@@ -90,14 +88,14 @@ const CategoryPage = ({ data: { home, categories, work, currentCat }, location})
             enter: { transition: { delayChildren: 0.5 }}
           }}
         >
-          <ul className="text-lg md:text-lg xl:text-xl leading-tight mb-4 overflow-scroll whitespace-no-wrap md:overflow-hidden md:flex md:flex-wrap">
-            <motion.li variants={fade} className="mr-3 md:mr-4 mb-2 ml-0 overflow-hidden relative inline-block">
-              <Link to="/" className="text-gray nav--item hover:text-black pb-px focus:text-black border-b block border-white">All</Link>
+          <ul className="text-lg md:text-lg xl:text-xl 3xl:text-2xl leading-tight flex flex-wrap mb-4">
+            <motion.li variants={fade} className="mr-3 md:mr-4 mb-2 ml-0 overflow-hidden relative">
+              <Link to="/" className="text-gray nav--item block hover:text-black pb-px focus:text-black border-b-2 border-white">All</Link>
             </motion.li>
             {categories.edges.map(({ node }, i) => {
-              let active = `/` + node.slug.toLowerCase() === location.pathname.toLowerCase()  ? `text-black border-b block border-black opacity-100` : `block text-gray nav--item hover:text-black focus:text-black border-b border-white`;
+              let active = `/` + node.slug.toLowerCase() === location.pathname.toLowerCase()  ? `text-black border-b border-black opacity-100 pb-1` : `text-gray nav--item block hover:text-black pb-1 focus:text-black`;
               return (
-                <motion.li variants={fade} className={`mr-3 md:mr-4 mb-2 overflow-hidden relative inline-block`} key={i}>
+                <motion.li variants={fade} className={`mr-3 md:mr-4 mb-2 overflow-hidden relative`} key={i}>
                   <Link to={`/${node.slug}`} className={active}>
                     { node.name }
                   </Link>
@@ -107,7 +105,7 @@ const CategoryPage = ({ data: { home, categories, work, currentCat }, location})
           </ul>
           
           <div className="overflow-hidden relative mb-8">
-            <motion.div dangerouslySetInnerHTML={{ __html: currentCat.filtersTextBlock }} variants={ fade } className="text-base md:text-lg max-w-2xl leading-snug block pb-0 mb-0"></motion.div>
+            <motion.div dangerouslySetInnerHTML={{ __html: currentCat.filtersTextBlock }} variants={ fade } className="text-base md:text-lg 3xl:text-xl max-w-2xl leading-snug block pb-0 mb-0"></motion.div>
           </div>
           
           <div className="overflow-hidden">

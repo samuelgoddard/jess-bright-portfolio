@@ -16,6 +16,10 @@ h1 {
   @screen xl {
     @apply text-6xl;
   }
+
+  @screen 3xl {
+    @apply text-7xl;
+  }
 }
 
 h2 {

@@ -31,8 +31,8 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
         </motion.div>
 
         <motion.div variants={fade}>
-        <div className="absolute top-0 right-0 mr-5 md:mr-10 mt-5 md:mt-24">
-            <Badges width="w-24 md:w-32" theme="text-blue-light" icon="branding" />
+          <div className="absolute top-0 right-0 mr-5 md:mr-10 mt-5 md:mt-24 3xl:mt-28">
+            <Badges width="w-24 md:w-32 3xl:w-40" theme="text-blue-light" icon="branding" />
           </div>
         </motion.div>
       </motion.div>
@@ -54,7 +54,7 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
           }}
           className="w-full md:px-8 relative z-10 hidden md:block"
         >
-          <h1 className="text-blue-light mb-24 md:mb-24 xl:mb-32 pr-12 md:pr-0 md:max-w-md xl:max-w-xl pb-0">
+          <h1 className="text-blue-light mb-24 md:mb-24 xl:mb-32 pr-12 md:pr-0 md:max-w-md xl:max-w-xl 3xl:max-w-2xl pb-0">
             <span className="block relative overflow-hidden">
               <motion.span variants={revealInOut} className="block">Working with</motion.span>
             </span>
@@ -95,12 +95,12 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
           </motion.div>
 
           <motion.div variants={fade} className="content w-11/12 md:w-6/12 xl:w-5/12 md:px-8">
-            <div className="text-xl md:text-2xl xl:text-3xl leading-tight" dangerouslySetInnerHTML={{ __html: about.content}}></div>
+            <div className="text-xl md:text-2xl xl:text-3xl 3xl:text-4xl leading-tight mb-4 md:mb-6 3xl:mb-8" dangerouslySetInnerHTML={{ __html: about.content}}></div>
 
-            <ul className="text-lg md:text-lg xl:text-xl leading-tight">
+            <ul className="text-lg md:text-xl xl:text-2xl 3xl:text-3xl leading-tight">
               {categories.edges.map(({ node }, i) => {
                 return (
-                  <li key={i}>- { node.name }</li>
+                  <li key={i} className="block mb-1">- { node.name }</li>
                 )
               })}
             </ul>
@@ -116,7 +116,7 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
           }}
           className="min-h-halfscreen w-full flex flex-wrap items-center justify-center relative z-10"
         >
-          <motion.a href={ `mailto:` + globals.emailAddress } variants={fade} className="block italic font-serif text-3xl md:text-4xl xl:text-5xl nav--active nav--active--large relative hover:text-white focus:text-white transition ease-in-out duration-300">Drop me a line!</motion.a>
+          <motion.a href={ `mailto:` + globals.emailAddress } variants={fade} className="block italic font-serif text-3xl md:text-4xl xl:text-5xl 3xl:text-6xl nav--active nav--active--large relative hover:text-white focus:text-white transition ease-in-out duration-300">Drop me a line!</motion.a>
         </motion.div>
       </motion.section>
     </>

@@ -39,8 +39,8 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
         </motion.div>
 
         <motion.div variants={fade}>
-          <div className="absolute top-0 right-0 mr-5 md:mr-10 mt-5 md:mt-24">
-            <Badges width="w-24 md:w-32" theme="text-black" icon="branding" />
+          <div className="absolute top-0 right-0 mr-5 md:mr-10 mt-5 md:mt-24 3xl:mt-28">
+            <Badges width="w-24 md:w-32 3xl:w-40" theme="text-black" icon="branding" />
           </div>
         </motion.div>
       </motion.div>
@@ -90,7 +90,7 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
         >
           <motion.h1 variants={fade } className="pb-0 mb-0">
             Jess Bright is <br/>a freelance
-            <span className="font-serif block h-12">
+            <span className="font-serif block h-14">
                 <ReactRotatingText
                   items={headingWords}
                   pause={2500}
@@ -108,7 +108,7 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
             enter: { transition: { delayChildren: 0.5 }}
           }}
         >
-          <ul className="text-lg md:text-lg xl:text-xl leading-tight mb-4 overflow-scroll whitespace-no-wrap md:overflow-hidden md:flex md:flex-wrap">
+          <ul className="text-lg md:text-lg xl:text-xl 3xl:text-2xl leading-tight mb-4 flex flex-wrap">
             <motion.li variants={fade} className="mr-3 md:mr-4 mb-2 ml-0 overflow-hidden relative inline-block">
               <Link to="/" className="border-b border-black block">All</Link>
             </motion.li>
@@ -124,7 +124,7 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
           </ul>
           
           <div className="overflow-hidden relative mb-8">
-            <motion.div dangerouslySetInnerHTML={{ __html: home.filtersTextBlock }} variants={ fade } className="text-base md:text-lg max-w-2xl leading-snug block pb-0 mb-0"></motion.div>
+            <motion.div dangerouslySetInnerHTML={{ __html: home.filtersTextBlock }} variants={ fade } className="text-base md:text-lg 3xl:text-xl max-w-2xl leading-snug block pb-0 mb-0"></motion.div>
           </div>
           
           <div className="overflow-hidden">

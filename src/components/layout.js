@@ -11,7 +11,7 @@ const Layout = ({ children, location }) => {
       <AnimatePresence exitBeforeEnter>
         {children}
 
-        <Footer color={ location.pathname === '/about' ? `text-blue-light` : `text-black` }/>
+        <Footer color={ location.pathname === '/about' || location.pathname ==='/about/' ? `text-blue-light` : `text-black` }/>
       </AnimatePresence>
     </div>
   )

@@ -37,6 +37,13 @@ module.exports = {
         sans: ['Telegraf', '-apple-system', 'BlinkMacSystemFont'],
         serif: ['Periodico Text TRIAL', 'Georgia', 'Cambria'],
       },
+      fontSize: {
+        '7xl': '5rem',
+      },
+      spacing: {
+        '14': '3.5rem',
+        '28': '7rem'
+      },
       lineHeight: {
         'extra-tight': '1.15',
       },
