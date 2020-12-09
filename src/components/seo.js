@@ -46,7 +46,8 @@ const SEO = ({ pathname, titleOverride, descriptionOverride, pathnameOverride, i
     }
   `)
   return (
-    <Helmet defer={false} titleTemplate={`%s${titleSuffix}`}>
+    <Helmet defer={false} titleTemplate={`%s${titleSuffix}`} bodyAttributes={{
+      class: pathnameOverride == '/about' || pathnameOverride == '/about/' ? `bg-blue transition-colors ease-in-out duration-500` : `bg-white transition-colors ease-in-out duration-500` }}>
       <html lang="en" />
       <link rel="canonical" href={`${siteUrl}${pathnameOverride ? pathnameOverride : pathname}`}/>
       <meta

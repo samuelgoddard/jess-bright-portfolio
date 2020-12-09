@@ -44,8 +44,6 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
         exit="exit"
         className="flex flex-wrap md:-mx-8 text-blue-light pt-40 pb-6 px-6 md:p-10 relative"
       >
-        <motion.div variants={fade} className="fixed top-0 right-0 bottom-0 left-0 bg-blue z-0 -mb-32"></motion.div>
-
         <motion.div
           initial="initial"
           animate="enter"
