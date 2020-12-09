@@ -79,7 +79,7 @@
 
 
 
-html {
+body, html, #scroll-container {
 	scroll-behavior: smooth;
 }
 
@@ -112,12 +112,12 @@ html {
 		-ms-user-select: none;
 		user-select: none;
 	}
-}
 
-/* Specifying the scroll container manually */
-.has-scroll-smooth #___gatsby,
-.has-scroll-smooth [data-scroll-container] {
-	min-height: 100vh;
+	/* Specifying the scroll container manually */
+	.has-scroll-smooth #___gatsby,
+	.has-scroll-smooth [data-scroll-container] {
+		min-height: 100vh;
+	}
 }
 
 .badge {

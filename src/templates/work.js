@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import SEO from "../components/seo"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
@@ -8,6 +8,10 @@ import { motion } from "framer-motion"
 import { fade, revealInOut } from "../helpers/transitionHelper"
 
 const WorkPage = ({ data: { work }, location}) => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <>
       <SEO

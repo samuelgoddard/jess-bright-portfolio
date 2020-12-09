@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import SEO from "../components/seo"
 import Teaser from "../components/teaser"
 import Header from "../components/header"
@@ -10,6 +10,10 @@ import Img from "gatsby-image"
 import { fade, revealInOut } from "../helpers/transitionHelper"
 
 const CategoryPage = ({ data: { home, categories, work, currentCat }, location}) => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <>
       <SEO

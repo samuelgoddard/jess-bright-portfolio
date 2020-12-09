@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import SEO from "../components/seo"
 import Teaser from "../components/teaser"
 import Badges from "../components/badges"
@@ -11,6 +11,9 @@ import { fade, revealInOut } from "../helpers/transitionHelper"
 var ReactRotatingText = require('react-rotating-text');
 
 const IndexPage = ({ data: { home, categories, work }, location}) => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   let headingWords = []
   {categories.edges.map(({ node }, i) => {
