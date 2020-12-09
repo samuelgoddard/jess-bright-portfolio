@@ -32,9 +32,9 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
         </motion.div>
 
         <motion.div variants={fade}>
-          <Div100vh className="absolute top-0 right-0 mr-5 md:mr-10 mt-5 md:mt-24 3xl:mt-28">
+          <div className="absolute top-0 right-0 mr-5 md:mr-10 mt-5 md:mt-24 3xl:mt-28">
             <Badges width="w-24 md:w-32 3xl:w-40" theme="text-blue-light" icon="branding" />
-          </Div100vh>
+          </div>
         </motion.div>
       </motion.div>
 
@@ -44,7 +44,7 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
         exit="exit"
         className="flex flex-wrap md:-mx-8 text-blue-light pt-40 pb-6 px-6 md:p-10 relative"
       >
-        <motion.div variants={fade} className="fixed top-0 right-0 bottom-0 left-0 bg-blue z-0"></motion.div>
+        <motion.div variants={fade} className="fixed top-0 right-0 bottom-0 left-0 bg-blue z-0 -mb-32"></motion.div>
 
         <motion.div
           initial="initial"
