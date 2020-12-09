@@ -12,5 +12,9 @@ export const wrapPageElement = ({ element, props }) => {
 
 export const shouldUpdateScroll = ({
   routerProps: { location },
-  getSavedScrollPosition,
-}) => { window.setTimeout(() => window.scrollTo(0, 0), transitionDelay)}
+  getSavedScrollPosition
+}) => {
+  window.scrollTo(0, 0)
+  console.log('window scroll')
+  return false
+}

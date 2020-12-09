@@ -6,7 +6,6 @@ import Badges from "../components/badges"
 import { motion } from 'framer-motion'
 import Scroll from "../components/locomotiveScroll"
 import Img from "gatsby-image"
-import Div100vh from "react-div-100vh"
 import { revealInOut, fade } from "../helpers/transitionHelper"
 
 const AboutPage = ({ data: { about, categories, globals }, location }) => {
