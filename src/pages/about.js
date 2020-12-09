@@ -6,6 +6,7 @@ import Badges from "../components/badges"
 import { motion } from 'framer-motion'
 import Scroll from "../components/locomotiveScroll"
 import Img from "gatsby-image"
+import Div100vh from "react-div-100vh"
 import { revealInOut, fade } from "../helpers/transitionHelper"
 
 const AboutPage = ({ data: { about, categories, globals }, location }) => {
@@ -31,9 +32,9 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
         </motion.div>
 
         <motion.div variants={fade}>
-          <div className="absolute top-0 right-0 mr-5 md:mr-10 mt-5 md:mt-24 3xl:mt-28">
+          <Div100vh className="absolute top-0 right-0 mr-5 md:mr-10 mt-5 md:mt-24 3xl:mt-28">
             <Badges width="w-24 md:w-32 3xl:w-40" theme="text-blue-light" icon="branding" />
-          </div>
+          </Div100vh>
         </motion.div>
       </motion.div>
 
@@ -56,7 +57,7 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
         >
           <h1 className="text-blue-light mb-24 md:mb-24 xl:mb-32 pr-12 md:pr-0 md:max-w-md xl:max-w-xl 3xl:max-w-2xl pb-0">
             <span className="block relative overflow-hidden">
-              <motion.span variants={revealInOut} className="block">Working with</motion.span>
+              <motion.span variants={revealInOut} className="block">Working <span className="italic font-serif">with</span></motion.span>
             </span>
             <span className="block relative overflow-hidden">
               <motion.span variants={revealInOut} className="block">agencies and cool</motion.span>
@@ -76,7 +77,7 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
           }}
           className="w-full md:px-8 relative z-10 block md:hidden overflow-hidden mb-16 md:mb-24 xl:mb-32"
         >
-          <motion.h1 variants={revealInOut} className="text-blue-light pr-12 md:pr-0 max-w-sm md:max-w-md xl:max-w-xl pb-0">Working with agencies and cool people worldwide
+          <motion.h1 variants={revealInOut} className="text-blue-light pr-12 md:pr-0 max-w-sm md:max-w-md xl:max-w-xl pb-0">Working <span className="italic font-serif">with</span> agencies and cool people worldwide
           </motion.h1>
         </motion.div>
 
