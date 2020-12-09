@@ -50,14 +50,14 @@ const WorkPage = ({ data: { work }, location}) => {
           <div className="mb-8">
             <div className="block relative overflow-hidden mb-8 md:mb-12 mt-6 md:mt-20 xl:mt-24">
               <motion.div variants={revealInOut}>
-                <h1 className="tracking-tighter mb-0 pb-0 max-w-xl">{work.title}</h1>
+                <h1 className="tracking-tighter mb-0 pb-0 max-w-xl 3xl:max-w-3xl">{work.title}</h1>
                 {/* <span className="block text-gray text-xl md:text-2xl -mt-1">{ work.category[0].name }</span> */}
               </motion.div>
             </div>
 
             <motion.div variants={fade} className="flex flex-wrap items-end mb-8 md:mb-12">
               { work.introText ? (
-                <div className="w-10/12 md:w-5/12 mb-6 md:mb-0 md:text-lg 3xl:text-xl leading-snug content" dangerouslySetInnerHTML={{ __html: work.introText }}></div>
+                <div className="w-10/12 md:w-1/2 xl:w-5/12 3xl:w-4/12 mb-6 md:mb-0 md:text-lg 3xl:text-xl leading-snug content" dangerouslySetInnerHTML={{ __html: work.introText }}></div>
               ) : (<></>)}
 
               <div className="w-full md:w-6/12 ml-auto md:text-right">
@@ -73,10 +73,12 @@ const WorkPage = ({ data: { work }, location}) => {
                 <span className="block text-sm xl:text-base 3xl:text-lg leading-snug">Year — {work.date}</span>
               </div>
             </motion.div>
-            
-            <motion.div variants={fade}>
-              <Img fluid={ work.featuredImage.fluid } className="w-full mb-0 pb-0" />
-            </motion.div>
+                  
+            { work.featuredImage && (
+              <motion.div variants={fade}>
+                <Img fluid={ work.featuredImage.fluid } className="w-full mb-0 pb-0" />
+              </motion.div>
+            )}
           </div>
 
           <motion.div variants={fade} className="mb-8">
@@ -86,7 +88,7 @@ const WorkPage = ({ data: { work }, location}) => {
                   {
                     block.model.apiKey === 'text' &&
                       <div
-                        className="w-10/12 md:w-1/2 xl:w-5/12 xl:pt-3 pt-6 md:pt-8 xl:pt-12 pb-16 md:pb-20 xl:pb-24 content xl:text-lg 3xl:text-xl"
+                        className="w-10/12 md:w-1/2 xl:w-5/12 3xl:w-4/12 xl:pt-3 pt-6 md:pt-8 xl:pt-12 pb-16 md:pb-20 xl:pb-24 content xl:text-lg 3xl:text-xl"
                         dangerouslySetInnerHTML={{ __html: block.text }}
                       ></div>
                   }{

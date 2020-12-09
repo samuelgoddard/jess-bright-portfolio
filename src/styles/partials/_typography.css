@@ -45,6 +45,10 @@ h2 {
   /* Paragraph */
   p {
     @apply mb-6;
+
+    &:last-of-type {
+      @apply mb-0;
+    }
   }
 
   /* Headings following paragraphs */
