@@ -98,19 +98,20 @@ html {
 	transform: translateY(0px) !important;
 }
 
-html.has-scroll-smooth {
-	overflow: hidden;
-}
+@screen md {
+	html.has-scroll-smooth {
+		overflow: hidden;
+	}
 
-html.has-scroll-dragging {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-.has-scroll-smooth body {
-	overflow: hidden;
+	.has-scroll-smooth body {
+		overflow: hidden;
+	}
+	html.has-scroll-dragging {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
 }
 
 /* Specifying the scroll container manually */
