@@ -41,7 +41,7 @@ module.exports = {
         '7xl': '5rem',
       },
       spacing: {
-        '14': '3.5rem',
+        '14': '3.4rem',
         '28': '7rem'
       },
       lineHeight: {

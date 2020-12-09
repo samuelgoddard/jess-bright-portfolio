@@ -89,7 +89,7 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
           className="mb-20 md:mb-24 xl:mb-32 pr-12 md:pr-0 block md:hidden overflow-hidden"
         >
           <motion.h1 variants={revealInOut } className="pb-0 mb-0">
-            Jess Bright is <br/>a freelance
+            Jess Bright<br/>is a freelance
             <span className="font-serif block h-14">
                 <ReactRotatingText
                   items={headingWords}
