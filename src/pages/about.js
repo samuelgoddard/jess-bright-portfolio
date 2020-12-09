@@ -74,9 +74,9 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
           variants={{
             enter: { transition: { staggerChildren: 0.055 }}
           }}
-          className="w-full md:px-8 relative z-10 block md:hidden"
+          className="w-full md:px-8 relative z-10 block md:hidden overflow-hidden mb-16 md:mb-24 xl:mb-32"
         >
-          <motion.h1 variants={fade} className="text-blue-light mb-16 md:mb-24 xl:mb-32 pr-12 md:pr-0 max-w-sm md:max-w-md xl:max-w-xl pb-0">Working with agencies and cool people worldwide
+          <motion.h1 variants={revealInOut} className="text-blue-light pr-12 md:pr-0 max-w-sm md:max-w-md xl:max-w-xl pb-0">Working with agencies and cool people worldwide
           </motion.h1>
         </motion.div>
 

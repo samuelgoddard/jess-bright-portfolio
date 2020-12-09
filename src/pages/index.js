@@ -86,9 +86,9 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
           variants={{
             enter: { transition: { staggerChildren: 0.055 }}
           }}
-          className="mb-20 md:mb-24 xl:mb-32 pr-12 md:pr-0 block md:hidden"
+          className="mb-20 md:mb-24 xl:mb-32 pr-12 md:pr-0 block md:hidden overflow-hidden"
         >
-          <motion.h1 variants={fade } className="pb-0 mb-0">
+          <motion.h1 variants={revealInOut } className="pb-0 mb-0">
             Jess Bright is <br/>a freelance
             <span className="font-serif block h-14">
                 <ReactRotatingText
