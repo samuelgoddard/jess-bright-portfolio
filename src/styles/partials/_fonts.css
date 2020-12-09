@@ -17,10 +17,10 @@
 }
 
 @font-face {
-  font-family: 'Periodico Text TRIAL';
-  src: local('Periodico Text TRIAL Light Italic'), local('PeriodicoTextTRIAL-LtIt'),
-      url('../fonts/PeriodicoTextTRIAL-LtIt.woff2') format('woff2'),
-      url('../fonts/PeriodicoTextTRIAL-LtIt.woff') format('woff');
+  font-family: 'Periodico';
+  src: local('Periodico'), local('Periodico'),
+      url('../fonts/Periodico.woff2') format('woff2'),
+      url('../fonts/Periodico.woff') format('woff');
   font-display: swap;
   font-weight: 200;
   font-style: italic;
