@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "./src/components/layout";
 
-const transitionDelay = 600;
+const transitionDelay = 750;
 
 export const onClientEntry = () => {
 }

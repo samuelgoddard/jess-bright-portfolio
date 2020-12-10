@@ -55,7 +55,7 @@ const WorkPage = ({ data: { work }, location}) => {
             <div className="mb-8">
               <div className="block relative overflow-hidden mb-8 md:mb-12 mt-6 md:mt-20 xl:mt-24">
                 <motion.div variants={revealInOut}>
-                  <h1 className="tracking-tighter mb-0 pb-0 max-w-xl 3xl:max-w-3xl">{work.title}</h1>
+                  <h1 className="mb-0 pb-0 max-w-xl 3xl:max-w-3xl">{work.title}</h1>
                   {/* <span className="block text-gray text-xl md:text-2xl -mt-1">{ work.category[0].name }</span> */}
                 </motion.div>
               </div>
