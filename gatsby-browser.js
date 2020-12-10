@@ -15,9 +15,13 @@ export const shouldUpdateScroll = ({
   getSavedScrollPosition,
 }) => {
   if (location.action === "PUSH") {
-    document.getElementById("scroll-container").scrollIntoView() 
+    window.setTimeout(() => window.scrollTo(0, 0), transitionDelay)
   } else {
-    document.getElementById("scroll-container").scrollIntoView() 
+    const savedPosition = getSavedScrollPosition(location)
+    window.setTimeout( 
+      () => window.scrollTo(...(savedPosition || [0, 0])),
+      transitionDelay
+    )
   }
   return false
 }
