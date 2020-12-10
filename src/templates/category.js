@@ -122,7 +122,7 @@ const CategoryPage = ({ data: { home, categories, work, currentCat }, location})
                     <motion.div className="h-full" variants={fade}>
                       { node.imageOnly ? (
                         <div className="block relative h-full grid-item">
-                          <Img fluid={ node.featuredImage.fluid } className="w-full h-full object-cover mb-0 pb-0" />
+                          <Img fluid={ node.teaserImage ? node.teaserImage.fluid : node.featuredImage.fluid } className="w-full h-full object-cover mb-0 pb-0" />
                         </div>
                     ) : (
                         <Teaser
