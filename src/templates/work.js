@@ -18,7 +18,6 @@ const WorkPage = ({ data: { work }, location}) => {
       />
       
       <Scroll callback={location} />
-      
       <motion.div
         initial="initial"
         animate="enter"
@@ -207,7 +206,7 @@ export const query = graphql`
       }
       date(formatString: "YYYY")
       featuredImage {
-        fluid(imgixParams: {w: "2000", h: "1200", fit: "crop" }) {
+        fluid(maxWidth: 2200, imgixParams: {fm: "jpg", w: "2200", h: "1500", fit: "crop" }) {
           ...GatsbyDatoCmsFluid
         }
       }
@@ -366,7 +365,7 @@ export const query = graphql`
           }
           image {
             fluid(
-              imgixParams: {w: "2000", h: "1200", fit: "crop" }) {
+              maxWidth: 2200, imgixParams: {fm: "jpg", w: "2200", h: "1500", fit: "crop" }) {
               ...GatsbyDatoCmsFluid
             }
             alt
