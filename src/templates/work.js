@@ -76,7 +76,7 @@ const WorkPage = ({ data: { work }, location}) => {
                   
             { work.featuredImage && (
               <motion.div variants={fade}>
-                <Img fluid={ work.featuredImage.fluid } className="w-full mb-0 pb-0" />
+                <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ work.featuredImage.fluid } className="w-full mb-0 pb-0" />
               </motion.div>
             )}
           </div>
@@ -96,15 +96,15 @@ const WorkPage = ({ data: { work }, location}) => {
                       <div className="w-full overflow-hidden mb-8">
                         <div className="flex flex-wrap md:-mx-4">
                           <div className="w-full flex flex-col md:w-1/2 md:px-4 mb-8 md:mb-0">
-                            <Img fluid={ block.image1.fluid } className="w-full h-full mb-0 pb-0" />
+                            <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ block.image1.fluid } className="w-full h-full mb-0 pb-0" />
                           </div>
                           <div className="w-full md:w-1/2 md:px-4 flex flex-col">
                             <div className="flex flex-wrap sm:-mx-4 md:mx-0">
                               <div className="w-full sm:w-1/2 md:w-full mb-8 sm:mb-0 md:mb-8 sm:px-4 md:px-0">
-                                <Img fluid={ block.image2.fluid } classame="w-full mb-0 pb-0" />
+                                <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ block.image2.fluid } classame="w-full mb-0 pb-0" />
                               </div>
                               <div className="w-full sm:w-1/2 md:w-full sm:px-4 md:px-0">
-                                <Img fluid={ block.image3.fluid } className="w-full mb-0 pb-0" />
+                                <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ block.image3.fluid } className="w-full mb-0 pb-0" />
                               </div>
                             </div>
                           </div>
@@ -115,10 +115,10 @@ const WorkPage = ({ data: { work }, location}) => {
                       <div className="w-full overflow-hidden mb-8">
                         <div className="flex flex-wrap sm:-mx-4">
                           <div className="w-full sm:w-1/2 sm:px-4">
-                            <Img fluid={ block.image1.fluid } className="w-full mb-8 pb-0" />
+                            <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ block.image1.fluid } className="w-full mb-8 pb-0" />
                           </div>
                           <div className="w-full sm:w-1/2 sm:px-4">
-                            <Img fluid={ block.image2.fluid } className="w-full mb-0 pb-0" />
+                            <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ block.image2.fluid } className="w-full mb-0 pb-0" />
                           </div>
                         </div>
                       </div>
@@ -127,10 +127,10 @@ const WorkPage = ({ data: { work }, location}) => {
                       <div className="w-full overflow-hidden mb-8">
                         <div className="flex flex-wrap sm:-mx-4">
                           <div className="w-full sm:w-7/12 sm:px-4 flex flex-col">
-                            <Img fluid={ block.image1.fluid } className="w-full mb-8 sm:mb-0 pb-0 h-full" />
+                            <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ block.image1.fluid } className="w-full mb-8 sm:mb-0 pb-0 h-full" />
                           </div>
                           <div className="w-full sm:w-5/12 sm:px-4 flex flex-col">
-                            <Img fluid={ block.image2.fluid } className="w-full h-full" />
+                            <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ block.image2.fluid } className="w-full h-full" />
                           </div>
                         </div>
                       </div>
@@ -139,10 +139,10 @@ const WorkPage = ({ data: { work }, location}) => {
                       <div className="w-full overflow-hidden mb-8">
                         <div className="flex flex-wrap sm:-mx-4">
                           <div className="w-full sm:w-5/12 sm:px-4 flex flex-col">
-                            <Img fluid={ block.image1.fluid } className="w-full h-full mb-8 sm:mb-0 pb-0" />
+                            <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ block.image1.fluid } className="w-full h-full mb-8 sm:mb-0 pb-0" />
                           </div>
                           <div className="w-full sm:w-7/12 sm:px-4 flex flex-col">
-                            <Img fluid={ block.image2.fluid } className="w-full h-full" />
+                            <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ block.image2.fluid } className="w-full h-full" />
                           </div>
                         </div>
                       </div>
@@ -151,13 +151,13 @@ const WorkPage = ({ data: { work }, location}) => {
                     <div className="w-full overflow-hidden mb-8">
                       <div className="flex flex-wrap sm:-mx-4">
                         <div className="w-full sm:w-4/12 sm:px-4 flex flex-col">
-                          <Img fluid={ block.image1.fluid } className="w-full h-full mb-8 sm:mb-0 pb-0" />
+                          <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ block.image1.fluid } className="w-full h-full mb-8 sm:mb-0 pb-0" />
                         </div>
                         <div className="w-full sm:w-4/12 sm:px-4 flex flex-col">
-                          <Img fluid={ block.image2.fluid } className="w-full h-full mb-8 sm:mb-0 pb-0" />
+                          <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ block.image2.fluid } className="w-full h-full mb-8 sm:mb-0 pb-0" />
                         </div>
                         <div className="w-full sm:w-4/12 sm:px-4 flex flex-col">
-                          <Img fluid={ block.image3.fluid } className="w-full h-full" />
+                          <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ block.image3.fluid } className="w-full h-full" />
                         </div>
                       </div>
                     </div>
@@ -165,18 +165,18 @@ const WorkPage = ({ data: { work }, location}) => {
                     block.model.apiKey === 'image25050_square' &&
                     <div className="w-full overflow-hidden mb-8">
                       <div className="flex flex-wrap sm:-mx-4">
-                        <div className="w-full sm:w-1/2 sm:px-4 flex flex-col">
+                        <div backgroundColor={work.teaserHoverBackgroundColour.hex } className="w-full sm:w-1/2 sm:px-4 flex flex-col">
                           <Img fluid={ block.image1.fluid } className="w-full h-full mb-8 sm:mb-0 pb-0" />
                         </div>
                         <div className="w-full sm:w-1/2 sm:px-4 flex flex-col">
-                          <Img fluid={ block.image2.fluid } className="w-full h-full" />
+                          <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ block.image2.fluid } className="w-full h-full" />
                         </div>
                       </div>
                     </div>
                   }{
                     block.model.apiKey === 'image1100' &&
                       <div className="w-full overflow-hidden mb-8">
-                        <Img fluid={ block.image.fluid } className="w-full pb-0" />
+                        <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ block.image.fluid } className="w-full pb-0" />
                       </div>
                   }
                 </div>
@@ -204,10 +204,13 @@ export const query = graphql`
           url
         }
       }
+      teaserHoverBackgroundColour {
+        hex
+      }
       date(formatString: "YYYY")
       featuredImage {
         fluid(maxWidth: 2200, imgixParams: {fm: "jpg", w: "2200", h: "1500", fit: "crop" }) {
-          ...GatsbyDatoCmsFluid
+          ...GatsbyDatoCmsFluid_noBase64
         }
       }
       metaBlocks {
@@ -232,21 +235,21 @@ export const query = graphql`
           image1 {
             fluid(
               imgixParams: {h: "2000", w: "1200", fit: "crop"}) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
             alt
           }
           image2 {
             fluid(
               imgixParams: {h: "975", w: "1200", fit: "crop"}) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
             alt
           }
           image3 {
             fluid(
               imgixParams: {auto: "format", sharp:0, h: "975", w: "1200", fit: "crop"}) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
             alt
           }
@@ -259,14 +262,14 @@ export const query = graphql`
           image1 {
             fluid(
               imgixParams: {h: "1100", w: "1600", fit: "crop"}) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
             alt
           }
           image2 {
             fluid(
               imgixParams: {h: "1600", w: "1600", fit: "crop"}) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
             alt
           }
@@ -279,14 +282,14 @@ export const query = graphql`
           image1 {
             fluid(
               imgixParams: {h: "1600", w: "1600", fit: "crop"}) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
             alt
           }
           image2 {
             fluid(
               imgixParams: {h: "1100", w: "1600", fit: "crop"}) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
             alt
           }
@@ -299,14 +302,14 @@ export const query = graphql`
           image1 {
             fluid(
               imgixParams: {h: "1100", w: "1600", fit: "crop"}) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
             alt
           }
           image2 {
             fluid(
               imgixParams: {h: "1100", w: "1600", fit: "crop"}) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
             alt
           }
@@ -319,14 +322,14 @@ export const query = graphql`
           image1 {
             fluid(
               imgixParams: {h: "1600", w: "1600", fit: "crop"}) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
             alt
           }
           image2 {
             fluid(
               imgixParams: {h: "1600", w: "1600", fit: "crop"}) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
             alt
           }
@@ -339,21 +342,21 @@ export const query = graphql`
           image1 {
             fluid(
               imgixParams: {h: "1600", w: "1600", fit: "crop"}) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
             alt
           }
           image2 {
             fluid(
               imgixParams: {h: "1600", w: "1600", fit: "crop"}) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
             alt
           }
           image3 {
             fluid(
               imgixParams: {h: "1600", w: "1600", fit: "crop"}) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
             alt
           }
@@ -366,7 +369,7 @@ export const query = graphql`
           image {
             fluid(
               maxWidth: 2200, imgixParams: {fm: "jpg", w: "2200", h: "1500", fit: "crop" }) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
             alt
           }

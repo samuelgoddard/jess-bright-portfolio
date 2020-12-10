@@ -134,7 +134,7 @@ const IndexPage = ({ data: { home, categories, work }, location}) => {
                     <motion.div className="h-full" variants={fade}>
                       { node.imageOnly ? (
                         <div className="block relative h-full grid-item">
-                          <Img fluid={ node.featuredImage.fluid } className="w-full h-full object-cover mb-0 pb-0" />
+                          <Img fluid={ node.teaserImage ? node.teaserImage.fluid : node.featuredImage.fluid } className="w-full h-full object-cover mb-0 pb-0" />
                         </div>
                     ) : (
                         <Teaser
@@ -191,12 +191,12 @@ export const query = graphql`
           }
           teaserImage {
             fluid(imgixParams: { w: "1920", h: "1400" }) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
           }
           featuredImage {
             fluid(imgixParams: { w: "1920", h: "1400" }) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
           }
         }
