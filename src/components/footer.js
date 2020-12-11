@@ -35,7 +35,7 @@ const Footer = (color) => {
               </ul>
             </div>
             <div className="w-full md:w-auto ml-auto">
-              <span className="text-lg md:text-xl xl:text-2xl 3xl:text-3xl md:pl-5">Site by <a href="https://ijpowell.co.uk/" target="_blank" rel="noopener noreferrer" className="inline-block nav--item--current">IJP</a> <span className="">+</span> <a href="https://samgoddard.co.uk/" target="_blank" rel="noopener noreferrer" className="inline-block nav--item--current">Snugs</a></span>
+              <span className="text-lg md:text-xl xl:text-2xl 3xl:text-3xl md:pl-5">Site by <a href="https://ijpowell.co.uk/" target="_blank" rel="noopener noreferrer" className="inline-block nav--item--current">IJP</a> <span className="">+</span> <a href="https://samgoddard.co.uk/" target="_blank" rel="noopener noreferrer" className="inline-block nav--item--current">SG</a></span>
             </div>
           </nav>
         </footer>
