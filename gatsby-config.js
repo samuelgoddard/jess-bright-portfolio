@@ -9,6 +9,13 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "G-JJZNPMX4BX",
+        anonymize: true,
+      },
+    },
     `gatsby-plugin-smoothscroll`,
     {
       resolve: `gatsby-source-filesystem`,
