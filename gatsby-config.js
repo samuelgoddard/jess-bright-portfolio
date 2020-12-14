@@ -10,13 +10,21 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: `gatsby-plugin-gtag`,
       options: {
-        id: "G-JJZNPMX4BX",
-        includeInDevelopment: false,
-        defaultDataLayer: { platform: "gatsby" },
+        trackingId: `G-JJZNPMX4BX`,
+        head: false,
+        anonymize: true,
       },
     },
+    // {
+    //   resolve: "gatsby-plugin-google-tagmanager",
+    //   options: {
+    //     id: "G-JJZNPMX4BX",
+    //     includeInDevelopment: false,
+    //     defaultDataLayer: { platform: "gatsby" },
+    //   },
+    // },
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
