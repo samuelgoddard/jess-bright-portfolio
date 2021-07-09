@@ -97,16 +97,16 @@ const AboutPage = ({ data: { about, categories, globals }, location }) => {
               <Img fluid={ about.image.fluid } className="w-full mb-8 md:mt-20 xl:mt-32" />
             </motion.div>
 
-            <motion.div variants={fade} className="content w-11/12 md:w-6/12 xl:w-5/12 md:px-8">
+            <motion.div variants={fade} className="content content--list w-11/12 md:w-6/12 xl:w-5/12 md:px-8">
               <div className="text-xl md:text-2xl xl:text-3xl 3xl:text-4xl leading-tight mb-4 md:mb-6 3xl:mb-8" dangerouslySetInnerHTML={{ __html: about.content}}></div>
 
-              <ul className="text-lg md:text-xl xl:text-2xl 3xl:text-3xl leading-tight">
+              {/* <ul className="text-lg md:text-xl xl:text-2xl 3xl:text-3xl leading-tight">
                 {categories.edges.map(({ node }, i) => {
                   return (
                     <li key={i} className="block mb-1">- { node.name }</li>
                   )
                 })}
-              </ul>
+              </ul> */}
             </motion.div>
           </motion.div>
 

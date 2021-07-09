@@ -39,9 +39,16 @@ h2 {
   }
 }
 
+.will-change {
+  will-change: transform;
+}
+
 /* Content */
 .content {
-  
+  p > a {
+    @apply border-b border-current;
+  }
+
   /* Paragraph */
   p {
     @apply mb-6;
@@ -54,6 +61,18 @@ h2 {
   /* Headings following paragraphs */
   p + h1, p + h2, p + h3, p + h4 {
     @apply pt-6 block;
+  }
+}
+
+.content--list {
+  ul {
+    @apply list-disc list-inside mt-6 !important;
+
+    li {
+      &:before {
+        content: '- ';
+      }
+    }
   }
 }
 
@@ -138,3 +157,20 @@ h2 {
 ::selection { 
   @apply bg-orange text-black bg-opacity-90;
  }
+
+ .video {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

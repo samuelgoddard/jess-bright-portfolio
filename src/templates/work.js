@@ -183,6 +183,11 @@ const WorkPage = ({ data: { work }, location}) => {
                         <div className="w-full overflow-hidden mb-8">
                           <Img backgroundColor={work.teaserHoverBackgroundColour.hex } fluid={ block.image.fluid } className="w-full pb-0" />
                         </div>
+                    }{
+                      block.model.apiKey === 'video' &&
+                        <div className="w-full overflow-hidden mb-8 video">
+                          <div className="w-full block" dangerouslySetInnerHTML={{ __html: block.embedCode }}></div>
+                        </div>
                     }
                   </div>
                 ))
@@ -379,6 +384,13 @@ export const query = graphql`
             }
             alt
           }
+        }
+        ... on DatoCmsVideo {
+          id
+          model {
+            apiKey
+          }
+          embedCode
         }
       }
       category {
