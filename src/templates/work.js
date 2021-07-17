@@ -4,6 +4,7 @@ import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import { SmoothScrollProvider } from "../components/locomotiveScroll"
 import Header from "../components/header"
+import IFrameWrapper from "../components/iframe-wrapper"
 import { motion } from "framer-motion"
 import { fade, revealInOut } from "../helpers/transitionHelper"
 
@@ -185,9 +186,19 @@ const WorkPage = ({ data: { work }, location}) => {
                         </div>
                     }{
                       block.model.apiKey === 'video' &&
-                        <div className="w-full overflow-hidden mb-8 video">
-                          <div className="w-full block" dangerouslySetInnerHTML={{ __html: block.embedCode }}></div>
+                        <IFrameWrapper iframe={block.embedCode} />
+                    }{
+                      block.model.apiKey === 'video25050' &&
+                      <div className="w-full overflow-hidden mb-8">
+                        <div className="flex flex-wrap sm:-mx-4">
+                          <div className="w-full sm:w-1/2 sm:px-4">
+                            <IFrameWrapper iframe={block.embedCode1} />
+                          </div>
+                          <div className="w-full sm:w-1/2 sm:px-4">
+                            <IFrameWrapper iframe={block.embedCode2} />
+                          </div>
                         </div>
+                      </div>
                     }
                   </div>
                 ))
@@ -391,6 +402,14 @@ export const query = graphql`
             apiKey
           }
           embedCode
+        }
+        ... on DatoCmsVideo25050 {
+          id
+          model {
+            apiKey
+          }
+          embedCode1
+          embedCode2
         }
       }
       category {
