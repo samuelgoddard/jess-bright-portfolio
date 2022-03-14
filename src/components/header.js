@@ -15,7 +15,7 @@ const Header = ({ color, workActiveOverride, aboutActiveOverride }) => (
           <a className={ color + ` nav--item--current text-lg md:text-xl xl:text-2xl 3xl:text-3xl ml-0 mx-4 md:mx-3 py-2 relative nav-transition`} href="mailto:jess_bright@hotmail.co.uk">Mail</a>
         </li>
         <li>
-          <a className={ color + ` nav--item--current text-lg md:text-xl xl:text-2xl 3xl:text-3xl ml-0 mx-4 md:mx-3 py-2 relative nav-transition`} href="https://www.etsy.com/uk/shop/JessBrightDesignShop" target="_blank" rel="noreferrer noopener">Shop</a>
+          <a className={ color + ` nav--item--current text-lg md:text-xl xl:text-2xl 3xl:text-3xl ml-0 mx-4 md:mx-3 py-2 relative nav-transition`} href="https://shop.jessbrightdesign.com" target="_blank" rel="noreferrer noopener">Shop</a>
         </li>
       </ul>
     </nav>
