@@ -71,6 +71,7 @@ const SEO = ({ pathname, titleOverride, descriptionOverride, pathnameOverride, i
       { noIndex && (
         <meta name="robots" content="noindex" />
       )}
+      <meta name="google-site-verification" content="0855TkIocyp4FF-uAd-Hgpy5bSIlvN_RkSc2SDJfHss" />
       <meta name="facebook-domain-verification" content="ulwjq329m2ofnz4u0jqs4ph9c6d7cs" />
       
     </Helmet>
